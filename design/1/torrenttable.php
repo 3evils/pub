@@ -99,10 +99,10 @@ function torrenttable($res, $variant = "index")
         $i++;
     }
     $htmlout.= "<div class='row'>
-   <table class=' unstacked unstriped'>
+   <table style='table-layout: auto;' class=' unstacked unstriped'>
    <thead>
    
-   <th style='width:20%!important;' class='row unstacked small-12'>Category</th>
+   <th style='max-height:50px; ' class='row unstacked small-12'>Category</th>
    <th class='row unstacked small-12'><a href='{$_SERVER["PHP_SELF"]}?{$oldlink}sort=1&amp;type={$link1}'>{$lang["torrenttable_name"]}</a></th>
    <th class='row unstacked small-12'><i class='fas fa-file-archive' aria-hidden='true'></i></th>";
     $htmlout.= ($variant == 'index' ? "<th class='row unstacked small-12'><a href='{$INSTALLER09['baseurl']}/bookmarks.php'><i class='fa fa-bookmark' aria-hidden='true'></i></a></th>" : '');
@@ -159,7 +159,7 @@ function torrenttable($res, $variant = "index")
 			//$htmlout.= '<tr><p class="' . (($free_color && $all_free_tag != '') || ($row['free'] != 0) || $slots_check ? 'freeleech_color' : 'browse_color') . '"></p>';
 		$htmlout.= "<tbody><tr>";
 
-		$htmlout.= "<td style='width:10%;' data-label='{$lang["torrenttable_type"]}'>";
+		$htmlout.= "<td style='height:50px;' data-label='{$lang["torrenttable_type"]}'>";
         if (isset($row["cat_name"])) {
             $htmlout.= "<a href='browse.php?cat=" . (int)$row['category'] . "'>";
             if (isset($row["cat_pic"]) && $row["cat_pic"] != "") 

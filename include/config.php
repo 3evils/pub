@@ -237,8 +237,8 @@ $INSTALLER09['ocelot_suffix'] = '/announce';
 $INSTALLER09['announce_urls'][] = 'http:/3evils.net:'.TRACKER_PORT.'/announce';
 } else {
 $INSTALLER09['announce_urls'] = array();
-$INSTALLER09['announce_urls'][] = 'http://test.3evils.com';
-$INSTALLER09['announce_urls'][] = 'https://test.3evils.com';
+$INSTALLER09['announce_urls'][] = 'http://3evils.net';
+$INSTALLER09['announce_urls'][] = 'https://3evils.net';
 }
 if (isset($_SERVER["HTTP_HOST"]) &&  $_SERVER["HTTP_HOST"] == "") $_SERVER["HTTP_HOST"] = $_SERVER["SERVER_NAME"];
 $INSTALLER09['baseurl'] = 'http' . (isset($_SERVER['HTTPS']) && (bool)$_SERVER['HTTPS'] == true ? 's' : '') . '://' . $_SERVER['HTTP_HOST'];
