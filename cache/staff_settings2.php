@@ -1,10 +1,7 @@
 <?php
 /**
-
-This file created on Oct 06 2020 22:10:20.
-.
-Site Config staff mod by pdq/U-232.
-
+This file created on Oct 08 2020 05:59:28.
+Site Config staff mod.
 **/
-$INSTALLER09['staff']['allowed'] = array('AntiMidas' => 1,'system' => 1,'Lucifer' => 1,'gray' => 1,'msch44' => 1);
+$INSTALLER09['staff']['allowed'] = array('AntiMidas' => 1,'system' => 1,'Lucifer' => 1,'gray' => 1,'msch44' => 1,'darkie62' => 1);
 ?>

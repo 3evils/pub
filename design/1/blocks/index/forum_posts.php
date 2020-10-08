@@ -84,13 +84,13 @@ if (($topics = $mc1->get_value('last_posts_b_' . $CURUSER['class'])) === false) 
 				$forum_name = "<a href='forums.php?action=viewforum&amp;forumid=" . (int)$topicarr['forum_id'] . "'>" . htmlsafechars($topicarr['name']) . "</a>";
 				$topic_name = "<p>" . $lockedimg . $stickyimg . "<a href='/forums.php?action=viewtopic&amp;topicid=$topicid&amp;page=last#" . (int)$topicarr['last_post'] . "'><b>" . htmlsafechars($topicarr['topic_name']) . "</b></a>&nbsp;&nbsp;$staffimg&nbsp;&nbsp;</p><p>$menu</p>";
 				$HTMLOUT.= "
-						<table><tr>
-						<th style='max-width:15%;' class='stacked  small-12' data-label='{$lang['latestposts_topic_title']}'>{$topic_name}</th>
+						<table style='table-layout: fixed;' ><tr>
+						<th  class='stacked  small-12' data-label='{$lang['latestposts_topic_title']}'>{$topic_name}</th>
 						<th class='stacked  small-12' data-label='Forum Title'>$forum_name</th>
 						<th class='stacked  small-12' data-label='Added by'>$author</th>
 						<th class='stacked  small-12' data-label='Added'>$added</th>
-						<th class='stacked  small-12' data-label='{$lang['latestposts_replies']}'><span class='badge'>{$replies}</span></th>
-						<th class='stacked  small-12' data-label='{$lang['latestposts_views']}'><span class='badge'>" . number_format($topicarr['views']) . "</span></th>
+						<th style='width:20%;' class='stacked  small-12' data-label='{$lang['latestposts_replies']}'><span class='badge'>{$replies}</span></th>
+						<th style='width:20%;' class='stacked  small-12' data-label='{$lang['latestposts_views']}'><span class='badge'>" . number_format($topicarr['views']) . "</span></th>
 						<th class='stacked  small-12' data-label='{$lang['latestposts_last_post']}'>{$username}</th></tr>
 						</table>
 						

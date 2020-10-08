@@ -144,7 +144,7 @@ if ($CURUSER) {
 			" . (isset($CURUSER) && $CURUSER['class'] >= UC_STAFF ? "<li><a href='" . $INSTALLER09['baseurl'] . "/staffpanel.php'>{$lang['gl_admin']}</a></li>" : "") . "  
 			<a class='button primary'  href='#'>Pers Tools</a>
 			<li><a href='#' onclick='themes();'>{$lang['gl_theme']}</a></li>
-			<li><a href='#' onclick='design();'>Change design framework</a></li>
+			<!--<li><a href='#' onclick='design();'>Change design framework</a></li>-->
 			<li><a href='#' onclick='language_select();'>{$lang['gl_language_select']}</a></li>
 			<li><a href='" . $INSTALLER09['baseurl'] . "/pm_system.php'>{$lang['gl_pms']}</a></li>
 			<li><a href='" . $INSTALLER09['baseurl'] . "/usercp.php?action=default'>{$lang['gl_usercp']}</a></li>
