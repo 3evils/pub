@@ -50,7 +50,7 @@ $stdhead = array(
     )
 );
 if ($CURUSER['design'] == $CURUSER['design']) {
-        require_once "./design/1/torrenttable.php";
+        require_once DESIGN_DIR . "{$CURUSER['design']}/torrenttable.php";
 }
 if ($CURUSER['design'] == $CURUSER['design']) {
         require_once "./design/1/browse.php";

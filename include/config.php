@@ -45,6 +45,7 @@ define('TRACKER_REPORTKEY', 'FZKU2wWVpqcWqvMXo4lLJYgwR2Dah4UI');
 define('TRACKER_HOST', 'localhost');
 define('TRACKER_PORT', 34000);
 define('OCELOT_CONF', '/usr/local/ocelot.conf');
+define('DESIGN_DIR', '/var/www/html/design/');
 //==charset
 $INSTALLER09['char_set'] = 'UTF-8'; //also to be used site wide in meta tags
 if (ini_get('default_charset') != $INSTALLER09['char_set']) {
