@@ -1,0 +1,17 @@
+
+===================================================
+ Date: Mon, 10 Feb 2020 11:01:36 +0000
+ Error Number: 1062
+ Error: Duplicate entry 'AntiMidas' for key 'username'
+ IP Address: 24.178.170.154
+ in file /var/www/html/takesignup.php on line 132
+ URL:/takesignup.php
+ Username: []
+===================================================
+ Date: Mon, 10 Feb 2020 11:04:11 +0000
+ Error Number: 1062
+ Error: Duplicate entry 'AntiMidas' for key 'username'
+ IP Address: 24.178.170.154
+ in file /var/www/html/takesignup.php on line 132
+ URL:/takesignup.php
+ Username: []
