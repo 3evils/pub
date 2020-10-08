@@ -34,7 +34,7 @@ dbconn(true);
 loggedinorreturn();
 require_once(TEMPLATE_DIR.''.$CURUSER['stylesheet'].'' . DIRECTORY_SEPARATOR . 'html_functions' . DIRECTORY_SEPARATOR . 'global_html_functions.php'); 
 require_once(TEMPLATE_DIR.''.$CURUSER['stylesheet'].'' . DIRECTORY_SEPARATOR . 'html_functions' . DIRECTORY_SEPARATOR . 'navigation_html_functions.php'); 
-
+//define('DESIGN_DIR', './design/');
 $stdhead = array(
     /** include js **/
     'js' => array(
@@ -65,7 +65,7 @@ $HTMLOUT = '<div class="column-portlet" id="col1">';
 //==Global blocks by elephant
 //==Curuser blocks by pdq
 
-//$CURUSER['design'] = '';
+//$CURUSER['design'] = './design/1';
 
 
 
