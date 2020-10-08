@@ -118,7 +118,7 @@ if (($last5torrents = $mc1->get_value('last5_tor_')) === false) {
 }
 if (count($last5torrents) > 0) {
     $HTMLOUT.= "<div class='module'><div class='tbadge tbadge-new'></div>
-    	        <table class='row'>
+    	        <table style='margin-left:.05%;' class='row'>
                 <thead>
 				<tr>
                 <th class=' col-md-1 text-left'><b>{$lang['last5torrents_type']}</b></th>

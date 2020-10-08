@@ -102,7 +102,7 @@ function torrenttable($res, $variant = "index")
    <table style='table-layout: auto;' class=' unstacked unstriped'>
    <thead>
    
-   <th style='max-height:50px; ' class='row unstacked small-12'>Category</th>
+   <th style='width:15%; ' class='row unstacked small-12'>Category</th>
    <th class='row unstacked small-12'><a href='{$_SERVER["PHP_SELF"]}?{$oldlink}sort=1&amp;type={$link1}'>{$lang["torrenttable_name"]}</a></th>
    <th class='row unstacked small-12'><i class='fas fa-file-archive' aria-hidden='true'></i></th>";
     $htmlout.= ($variant == 'index' ? "<th class='row unstacked small-12'><a href='{$INSTALLER09['baseurl']}/bookmarks.php'><i class='fa fa-bookmark' aria-hidden='true'></i></a></th>" : '');
@@ -116,9 +116,9 @@ function torrenttable($res, $variant = "index")
 
    <th class='row unstacked small-12' class='shrink'><a href='{$_SERVER["PHP_SELF"]}?{$oldlink}sort=2&amp;type={$link2}'><i class='fas fa-copy' aria-hidden='true'></i></a></th>
    <th class='row unstacked small-12'><a href='{$_SERVER["PHP_SELF"]}?{$oldlink}sort=3&amp;type={$link3}'><i class='fa fa-comments' aria-hidden='true'></i></a></th>
-   <th class='text-center unstacked' aria-describedby='addedHelpText'><a href='{$_SERVER["PHP_SELF"]}?{$oldlink}sort=4&amp;type={$link4}'><i class='far fa-clock'></i></a></th>
+   <th class='text-center unstacked' aria-describedby='addedHelpText'><a href='{$_SERVER["PHP_SELF"]}?{$oldlink}sort=4&amp;type={$link4}'><i class='fab fa-clock'></i></a></th>
    ".($INSTALLER09['wait_times'] == 1 ? "<th>{$lang["torrenttable_ttl"]}</th>" : "")."
-   <th class='text-center unstacked' aria-describedby='sizeHelpText'><a href='{$_SERVER["PHP_SELF"]}?{$oldlink}sort=5&amp;type={$link5}'><i class='fas fa-chart-pie'></a></th>
+   <style>.help-text {color:white;}</style><th class='text-center unstacked' aria-describedby='sizeHelpText'><a href='{$_SERVER["PHP_SELF"]}?{$oldlink}sort=5&amp;type={$link5}'><i class='fas fa-chart-pie'></a></th>
    <th class='row unstacked small-12' aria-describedby='completedHelpText'><a href='{$_SERVER["PHP_SELF"]}?{$oldlink}sort=6&amp;type={$link6}'><i class='fas fa-sync-alt'></i></a></th>
    <th class='row unstacked small-12'><a href='{$_SERVER["PHP_SELF"]}?{$oldlink}sort=7&amp;type={$link7}'><font color='#5da423'><i class='fas fa-arrow-alt-circle-up'></i></font></a></th>
    <th class='row unstacked small-12'><a href='{$_SERVER["PHP_SELF"]}?{$oldlink}sort=8&amp;type={$link8}'><font color='red'><i class='fas fa-arrow-alt-circle-down'></i></font></a></th>";

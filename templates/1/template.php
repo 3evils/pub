@@ -162,11 +162,13 @@ if ($CURUSER) {
 	$htmlout .="</div>";
 	$htmlout .= "<div class='off-canvas-content' data-off-canvas-content>
 <div class='expanded row'>
-<div class='large-6 columns'>
-	<h1 class='subheader'>".TBVERSION."</h1>
-	<h4 class='subheader'>Based on an unreleased U232</h4>
-</div>
-<div class='large-4 columns'>".StatusBar()."</div>
+
+<div style='overflow: hidden' class='large-4 columns'>".StatusBar()."</div>
+
+</div><div class=''>
+	<!--<h1 class='subheader'>".TBVERSION."</h1>-->
+	<h1 style='text-align: center;color:white;' class='subheader'>3 Evils</h1>
+	<!--<h4 class='subheader'>Based on an unreleased U232</h4>-->
 </div>";
 }
 if ($CURUSER) {
