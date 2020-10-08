@@ -70,7 +70,7 @@ $USERSALT = substr(md5($SaLty.$CURUSER['id']) , 0, 6);
 make_year(BITBUCKET_DIR);
 make_month(BITBUCKET_DIR);
 if ($CURUSER['design'] == $CURUSER['design']) {
-	require_once "./design/1/bitbucket.php";
+	require_once DESIGN_DIR . "{$CURUSER['design']}/bitbucket.php";
 }
 
 echo stdhead($lang['bitbucket_bitbucket']).$HTMLOUT.stdfoot();

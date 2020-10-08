@@ -31,6 +31,6 @@ dbconn(false);
 loggedinorreturn();
 $lang = array_merge(load_language('global') , load_language('comment') , load_language('capprove'));
 if ($CURUSER['design'] == $CURUSER['design']) {
-	require_once "./design/1/comment.php";
+	require_once DESIGN_DIR . "{$CURUSER['design']}/comment.php";
 }
 ?>

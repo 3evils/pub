@@ -32,7 +32,7 @@ dbconn(false);
 loggedinorreturn();
 $lang = array_merge(load_language('global'));
 if ($CURUSER['design'] == $CURUSER['design']) {
-	require_once "./design/1/donate.php";
+	require_once DESIGN_DIR . "{$CURUSER['design']}/donate.php";
 }
 echo (stdhead('Donate') . $out . stdfoot());
 ?>

@@ -40,7 +40,7 @@ loggedinorreturn();
 $lang = array_merge(load_language('global'), load_language('details'));
 parked();
 if ($CURUSER['design'] == $CURUSER['design']) {
-	require_once "./design/1/details.php";
+	require_once DESIGN_DIR . "{$CURUSER['design']}/details.php";
 }
 echo stdhead("{$lang['details_details']}\"" . htmlsafechars($torrents["name"], ENT_QUOTES) . "\"", true, $stdhead) . $HTMLOUT . stdfoot($stdfoot);
 ?>

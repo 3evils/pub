@@ -39,7 +39,7 @@ stderr($lang['achievement_history_err'], $lang['achievement_history_off']);
 exit();
 }
 if ($CURUSER['design'] == $CURUSER['design']) {
- require_once "./design/1/bugs.php";
+ require_once DESIGN_DIR . "{$CURUSER['design']}/bugs.php";
 }
 echo stdhead($lang['achievement_history_stdhead']) . $HTMLOUT . stdfoot();
 die;

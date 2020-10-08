@@ -32,7 +32,7 @@ dbconn(false);
 loggedinorreturn();
 $lang = array_merge(load_language('global') , load_language('torrenttable_functions'), load_language('bookmark'));
 if ($CURUSER['design'] == $CURUSER['design']) {
-	require_once "./design/1/bookmarks.php";
+	require_once DESIGN_DIR . "{$CURUSER['design']}/bookmarks.php";
 }
 echo stdhead($lang['bookmarks_stdhead']) . $htmlout . stdfoot();
 ?>

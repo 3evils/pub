@@ -36,6 +36,6 @@ if ($CURUSER["game_access"] == 0 || $CURUSER["game_access"] > 1 || $CURUSER['sus
 if ($CURUSER['class'] < UC_POWER_USER)
     stderr($lang['bj_sorry'], $lang['bj_you_must_be_pu']);
 if ($CURUSER['design'] == $CURUSER['design']) {
-	require_once "./design/1/blackjack.php";
+	require_once DESIGN_DIR . "{$CURUSER['design']}/blackjack.php";
 }
 ?>

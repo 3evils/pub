@@ -37,7 +37,7 @@ $stdhead = array(
     )
 );
 if ($CURUSER['design'] == $CURUSER['design']) {
-    require_once "./design/1/bugs.php";
+    require_once DESIGN_DIR . "{$CURUSER['design']}/bugs.php";
 }
 echo stdhead($lang['contactstaff_header'], true, $stdhead) . $HTMLOUT . stdfoot();
 ?>

@@ -53,7 +53,7 @@ if ($CURUSER['design'] == $CURUSER['design']) {
         require_once DESIGN_DIR . "{$CURUSER['design']}/torrenttable.php";
 }
 if ($CURUSER['design'] == $CURUSER['design']) {
-        require_once "./design/1/browse.php";
+        require_once DESIGN_DIR . "{$CURUSER['design']}/browse.php";
 }
 echo stdhead($title, true, $stdhead) . $HTMLOUT . stdfoot($stdfoot);
 ?>

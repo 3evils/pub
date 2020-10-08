@@ -33,7 +33,7 @@ loggedinorreturn();
 $lang = array_merge(load_language('global'), load_language('casino'));
 
 if ($CURUSER['design'] == $CURUSER['design']) {
-	require_once "./design/1/casino.php";
+	require_once DESIGN_DIR . "{$CURUSER['design']}/casino.php";
 }
 echo stdhead("{$INSTALLER09['site_name']} {$lang['casino_stdhead']}") . $HTMLOUT . stdfoot();
 ?>

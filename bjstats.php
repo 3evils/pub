@@ -34,7 +34,7 @@ if ($CURUSER['class'] < UC_POWER_USER) {
     exit;
 }
 if ($CURUSER['design'] == $CURUSER['design']) {
-    require_once "./design/1/bugs.php";
+    require_once DESIGN_DIR . "{$CURUSER['design']}/bugs.php";
 }
 echo stdhead($lang['bj_blackjack_stats']) . $HTMLOUT . stdfoot();
 ?>

@@ -50,10 +50,10 @@ $stdhead = array(
 
 $lang = array_merge(load_language('global') , load_language('browse'), load_language('catalogue') , load_language('torrenttable_functions'));
 if ($CURUSER['design'] == $CURUSER['design']) {
-	require_once "./design/1/torrenttable_catalogue.php";
+	require_once DESIGN_DIR . "{$CURUSER['design']}/torrenttable_catalogue.php";
 }
 if ($CURUSER['design'] == $CURUSER['design']) {
-	require_once "./design/1/browse_catalogue.php";
+	require_once DESIGN_DIR . "{$CURUSER['design']}/browse_catalogue.php";
 }
 //== End Ip logger
 echo stdhead($title, true, $stdhead) . $HTMLOUT . stdfoot($stdfoot);

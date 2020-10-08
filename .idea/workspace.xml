@@ -81,6 +81,7 @@
       <workItem from="1587673708002" duration="1495000" />
       <workItem from="1587953603680" duration="253000" />
       <workItem from="1601897551961" duration="51000" />
+      <workItem from="1602123179285" duration="203000" />
     </task>
     <servers />
   </component>
@@ -92,5 +93,13 @@
       <screen x="0" y="40" width="2560" height="1040" />
     </state>
     <state x="148" y="205" key="SettingsEditor/0.40.2560.1040@0.40.2560.1040" timestamp="1601897570299" />
+    <state x="66" y="89" width="575" height="565" key="find.popup" timestamp="1602123338984">
+      <screen x="0" y="30" width="1280" height="690" />
+    </state>
+    <state x="66" y="89" width="575" height="565" key="find.popup/0.30.1280.690/3840.-544.1920.1050@0.30.1280.690" timestamp="1602123338984" />
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1602123257608">
+      <screen x="0" y="30" width="1280" height="690" />
+    </state>
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup/0.30.1280.690/3840.-544.1920.1050@0.30.1280.690" timestamp="1602123257608" />
   </component>
 </project>

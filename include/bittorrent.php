@@ -1337,7 +1337,7 @@ function load_design($file = '')
     if (!file_exists("./design/1/html_content.php")) {
         stderr('System Error', 'Can\'t find design files');
     } else {
-        require_once "./design/1/html_content.php";
+        require_once DESIGN_DIR . "{$CURUSER['design']}/html_content.php";
     }
     return $design;
 }

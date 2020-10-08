@@ -34,7 +34,7 @@ dbconn();
 $design = array_merge(load_design());
 $lang = array_merge(load_language('global'), load_language('achievementlist'));
 if ($CURUSER['design'] == $CURUSER['design']) {
- require_once "./design/1/bugs.php";
+ require_once DESIGN_DIR . "{$CURUSER['design']}/bugs.php";
 }
 echo stdhead($lang['achlst_std_head']) . $HTMLOUT . stdfoot();
 ?>

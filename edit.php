@@ -34,7 +34,7 @@ loggedinorreturn();
 $lang = array_merge(load_language('global') , load_language('edit'), load_language('ad_artefact'));
 
 if ($CURUSER['design'] == $CURUSER['design']) {
-	require_once "./design/1/edit.php";
+	require_once DESIGN_DIR . "{$CURUSER['design']}/edit.php";
 }
 echo stdhead("{$lang['edit_stdhead']} '{$row["name"]}'", true, $stdhead) . $HTMLOUT . stdfoot($stdfoot);
 ?>

@@ -35,7 +35,7 @@ require_once(TEMPLATE_DIR.''.$CURUSER['stylesheet'].'' . DIRECTORY_SEPARATOR . '
 $lang = array_merge(load_language('global'), load_language('faq'));
 $HTMLOUT = "";
 if ($CURUSER['design'] == $CURUSER['design']) {
- require_once "./design/1/bugs.php";
+ require_once DESIGN_DIR . "{$CURUSER['design']}/bugs.php";
 }
 
 echo stdhead('FAQ') . $HTMLOUT . stdfoot();

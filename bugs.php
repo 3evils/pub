@@ -30,7 +30,7 @@ dbconn();
 loggedinorreturn();
 $lang = array_merge(load_language('global') , load_language('bugs'));
 if ($CURUSER['design'] == $CURUSER['design']) {
-	require_once "./design/1/bugs.php";
+	require_once DESIGN_DIR . "{$CURUSER['design']}/bugs.php";
 }
 echo stdhead("{$lang['header']}") . $HTMLOUT . stdfoot();
 ?>
