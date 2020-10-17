@@ -331,7 +331,10 @@ apt install cmake default-libmysqlclient-dev g++ git libboost-dev make zlib1g-de
 
 yum install boost-devel cmake gcc-c++ git make mysql-devel Enter the following commands in a terminal. Be patient while g++ is running, it'll take a few minutes.
 
-git clone https://github.com/3evils/xbt.git cd xbt/Tracker cmake . make cp xbt_tracker.conf.default xbt_tracker.conf
+cd XBT/Tracker 
+cmake . 
+make 
+cp xbt_tracker.conf.default xbt_tracker.conf
 
 
 ------------------------------------------------------------------------------------------------------------------------
