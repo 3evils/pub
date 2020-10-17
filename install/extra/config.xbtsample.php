@@ -40,6 +40,7 @@ die('A 64bit or higher OS + Processor is required.');
 define('EMAIL_CONFIRM', true);
 define('SQL_DEBUG', 1);
 define('XBT_TRACKER', true);
+define('DESIGN_DIR', '/var/www/html/design/');
 
 //==charset
 $INSTALLER09['char_set'] = 'UTF-8'; //also to be used site wide in meta tags
