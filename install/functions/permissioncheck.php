@@ -34,11 +34,9 @@ function permissioncheck()
     global $root;
     if (file_exists('step0.lock')) header('Location: index.php?step=1');
     $dirs = array(
-        $root . 'dir_list/' => 0,
         $root . 'imdb/' => 0,
         $root . 'cache/' => 0,
         $root . 'torrents/' => 0,
-        $root . 'uploads/' => 0,
         $root . 'include/backup/' => 0,
         $root . 'sqlerr_logs/' => 0,
         $root . 'install/' => 0,
