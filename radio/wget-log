@@ -1,11 +1,0 @@
---2019-11-09 22:42:43--  https://freewidgets.co/Media/audio/?uid=277
-Resolving freewidgets.co (freewidgets.co)... 66.147.230.2
-Connecting to freewidgets.co (freewidgets.co)|66.147.230.2|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: unspecified [text/html]
-Saving to: ‘index.html?uid=277’
-
-index.html?uid=277                                     [<=>                                                                                                            ]       0  --.-KB/s               index.html?uid=277                                     [ <=>                                                                                                           ]       0  --.-KB/s    in 0s      
-
-2019-11-09 22:42:44 (0.00 B/s) - ‘index.html?uid=277’ saved [0]
-

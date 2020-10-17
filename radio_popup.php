@@ -1,28 +1,21 @@
 <?php
 /**
  |--------------------------------------------------------------------------|
- |   https://github.com/3evils/                                             |
+ |   https://github.com/Bigjoos/                                            |
  |--------------------------------------------------------------------------|
  |   Licence Info: WTFPL                                                    |
  |--------------------------------------------------------------------------|
- |   Copyright (C) 2020 Evil-Trinity                                        |
+ |   Copyright (C) 2010 U-232 V5                                            |
  |--------------------------------------------------------------------------|
- |   A bittorrent tracker source based on an unreleased U-232               |
+ |   A bittorrent tracker source based on TBDev.net/tbsource/bytemonsoon.   |
  |--------------------------------------------------------------------------|
- |   Project Leaders: AntiMidas,  Seeder                                    |
+ |   Project Leaders: Mindless, Autotron, whocares, Swizzles.               |
  |--------------------------------------------------------------------------|
- |   All other snippets, mods and contributions for this version from:      |
- | CoLdFuSiOn, *putyn, pdq, djGrrr, Retro, elephant, ezero, Alex2005,       |
- | system, sir_Snugglebunny, laffin, Wilba, Traffic, dokty, djlee, neptune, |
- | scars, Raw, soft, jaits, Melvinmeow, RogueSurfer, stoner, Stillapunk,    |
- | swizzles, autotron, stonebreath, whocares, Tundracanine , son            |
- |                                                                                                                            |
- |--------------------------------------------------------------------------|
-                 _   _   _   _     _   _   _   _   _   _   _
-                / \ / \ / \ / \   / \ / \ / \ / \ / \ / \ / \
-               | E | v | i | l )-| T | r | i | n | i | t | y )
-                \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/ \_/
-*/
+  _   _   _   _   _     _   _   _   _   _   _     _   _   _   _
+ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \   / \ / \ / \ / \
+( U | - | 2 | 3 | 2 )-( S | o | u | r | c | e )-( C | o | d | e )
+ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/
+ */
 require_once (__DIR__ . DIRECTORY_SEPARATOR . 'include' . DIRECTORY_SEPARATOR . 'bittorrent.php');
 require_once (INCL_DIR . 'user_functions.php');
 require_once INCL_DIR . 'html_functions.php';
