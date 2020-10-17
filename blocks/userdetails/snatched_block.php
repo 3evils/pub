@@ -44,8 +44,8 @@ function snatchtable($res)
         $upspeed = ($arr["upspeed"] > 0 ? mksize($arr["upspeed"]) : ($arr["seedtime"] > 0 ? mksize($arr["uploaded"] / ($arr["seedtime"] + $arr["leechtime"])) : mksize(0)));
         $downspeed = ($arr["downspeed"] > 0 ? mksize($arr["downspeed"]) : ($arr["leechtime"] > 0 ? mksize($arr["downloaded"] / $arr["leechtime"]) : mksize(0)));
         $ratio = ($arr["downloaded"] > 0 ? number_format($arr["uploaded"] / $arr["downloaded"], 3) : ($arr["uploaded"] > 0 ? "Inf." : "---"));
-        $OCELOT_or_PHP = (OCELOT_TRACKER == true ? $arr['fid'] : $arr['torrentid']);
-        $OCELOT_or_PHP_TIME = (OCELOT_TRACKER == true ? $arr["completedtime"] : $arr["complete_date"]);
+        $OCELOT_or_PHP = (XBT_TRACKER == true ? $arr['fid'] : $arr['torrentid']);
+        $OCELOT_or_PHP_TIME = (XBT_TRACKER == true ? $arr["completedtime"] : $arr["complete_date"]);
         $htmlout.= "<tr>
  <td style='padding: 0px'><img src='{$INSTALLER09['pic_base_url']}caticons/{$CURUSER['categorie_icon']}/" . htmlsafechars($arr["catimg"]) . "' alt='" . htmlsafechars($arr["catname"]) . "' width='42' height='42' /></td>
  <td><a href='details.php?id=" . (int)$OCELOT_or_PHP . "'><b>" . (strlen($arr["name"]) > 50 ? substr($arr["name"], 0, 50 - 3) . "..." : htmlsafechars($arr["name"])) . "</b></a></td>
@@ -65,7 +65,7 @@ if ($user['paranoia'] < 2 || $user['opt1'] & user_options::HIDECUR || $CURUSER['
     //==Snatched
 
 //    if (($user_snatches_data = $mc1->get_value('user_snatches_data_' . $id)) === false) {
-         if (OCELOT_TRACKER === false) {
+         if (XBT_TRACKER === false) {
         $ressnatch = sql_query("SELECT s.*, t.name AS name, c.name AS catname, c.image AS catimg FROM snatched AS s INNER JOIN torrents AS t ON s.torrentid = t.id LEFT JOIN categories AS c ON t.category = c.id WHERE s.userid =" . sqlesc($user['id'])." AND s.torrentid IN (SELECT id FROM torrents)") or sqlerr(__FILE__, __LINE__);
         } else {
          $ressnatch = sql_query("SELECT x.*, t.name AS name, c.name AS catname, c.image AS catimg FROM xbt_files_users AS x INNER JOIN torrents AS t ON x.fid = t.id LEFT JOIN categories AS c ON t.category = c.id WHERE x.uid =" . sqlesc($user['id'])." AND x.fid IN (SELECT id FROM torrents)") or sqlerr(__FILE__, __LINE__);

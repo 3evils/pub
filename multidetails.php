@@ -112,9 +112,9 @@ foreach($_GET['id'] as $id ) {
 
     $HTMLOUT .= "<div class='col-md-12'><h2>{$s}</h2></div>";
 
-    $Free_Slot = (OCELOT_TRACKER == true ? '' : $freeslot);
-    $Free_Slot_Zip = (OCELOT_TRACKER == true ? '' : $freeslot_zip);
-    $Free_Slot_Text = (OCELOT_TRACKER == true ? '' : $freeslot_text);
+    $Free_Slot = (XBT_TRACKER == true ? '' : $freeslot);
+    $Free_Slot_Zip = (XBT_TRACKER == true ? '' : $freeslot_zip);
+    $Free_Slot_Text = (XBT_TRACKER == true ? '' : $freeslot_text);
 
     $HTMLOUT.= "<div class='col-md-12'>
 	<table class='table table-bordered'>

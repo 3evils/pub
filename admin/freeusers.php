@@ -50,7 +50,7 @@ if ($remove) {
             $msgs_buffer[] = '(0,' . $arr['id'] . ',' . TIME_NOW . ', ' . sqlesc($msg) . ', \''.$lang['freeusers_msg_buffer'].'\')';
             $users_buffer[] = '(' . $arr['id'] . ',0,' . $modcomment . ')';
             $username = $arr['username'];
-            if (OCELOT_TRACKER) {
+            if (XBT_TRACKER) {
                 require_once(CLASS_DIR . 'tracker.class.php');
                 Tracker::update_tracker('update_user', array('passkey' => $arr['torrent_pass'], 'free_switch' => 0, 'can_leech' => $arr['can_leech'], 'visible' => ($arr['privacy'] != 'normal' ? 1 : 0)));
             }

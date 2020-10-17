@@ -43,13 +43,13 @@ if (isset($_POST["form"]) != 1) {
         <form action='./uploadapp.php' method='post' enctype='multipart/form-data'>
         <table class='table table-bordered'>";
         $ratio = member_ratio($CURUSER['uploaded'], $CURUSER['downloaded']);
-                if (OCELOT_TRACKER === false) {
+                if (XBT_TRACKER === false) {
         $res = sql_query("SELECT connectable FROM peers WHERE userid=" . sqlesc($CURUSER['id'])) or sqlerr(__FILE__, __LINE__);
         } else {
         $res = sql_query("SELECT connectable FROM xbt_files_users WHERE uid=" . sqlesc($CURUSER['id'])) or sqlerr(__FILE__, __LINE__);
         }
         if ($row = mysqli_fetch_row($res)) {
-        $Conn_Y = (OCELOT_TRACKER === true ? 1 : 'yes');
+        $Conn_Y = (XBT_TRACKER === true ? 1 : 'yes');
             $connect = $row[0];
             if ($connect == $Conn_Y) $connectable = 'Yes';
             else $connectable = 'No';

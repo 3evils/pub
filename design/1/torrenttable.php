@@ -218,7 +218,7 @@ function torrenttable($res, $variant = "index")
         $nuked = ($row["nuked"] == "yes" ? "<i class='fas fa-exclamation-circle' title='Reason :'". htmlsafechars($row["nukereason"]) ."' aria-hidden='true'></i>": "");
         $release_group = ($row['release_group'] == "scene" ? "&nbsp;<img src='{$INSTALLER09['pic_base_url']}scene.gif' title='Scene' alt='Scene' style='border:none' />" : ($row['release_group'] == "p2p" ? "&nbsp;<img src='{$INSTALLER09['pic_base_url']}p2p.gif' title='P2P' alt='P2P' />" : ""));
         $viponly = ($row["vip"] == 1 ? "<i class='fas fa-star' aria-hidden='true'></i>" : "");
-        $freetorrent = (OCELOT_TRACKER == true && $row["freetorrent"] >= 1 ? "<img src='{$INSTALLER09['pic_base_url']}freedownload.gif' border='0' alt='Free Torrent' title='Free Torrent' />" : "");
+        $freetorrent = (XBT_TRACKER == true && $row["freetorrent"] >= 1 ? "<img src='{$INSTALLER09['pic_base_url']}freedownload.gif' border='0' alt='Free Torrent' title='Free Torrent' />" : "");
         $bump = ($row['bump'] == "yes" ? "<img src='{$INSTALLER09['pic_base_url']}up.gif' width='12px' alt='Re-Animated torrent' title='This torrent was ReAnimated!' />" : "");
         /** FREE Torrent **/
         $free_tag = ($row['free'] != 0 ? ' <a class="info" href="#"><b>[FREE]</b> <span>' . ($row['free'] > 1 ? 'Expires: ' . get_date($row['free'], 'DATE') . '<br />(' . mkprettytime($row['free'] - TIME_NOW) . ' to go)<br />' : 'Unlimited<br />') . '</span></a>' : $all_free_tag);
@@ -303,23 +303,23 @@ function torrenttable($res, $variant = "index")
         $htmlout.= "<td data-label='{$lang["torrenttable_size"]}'  class='help-text' id='sizeHelpText'>" . str_replace(" ", "<br>", mksize($row["size"])) . "</td>";
         if ($row["times_completed"] != 1) $_s = "" . $lang["torrenttable_time_plural"];
         else $_s = "" . $lang["torrenttable_time_singular"];
-        $What_Script_S = (OCELOT_TRACKER == true ? 'snatches_ocelot.php?id=' : 'snatches.php?id=' );
+        $What_Script_S = (XBT_TRACKER == true ? 'snatches_ocelot.php?id=' : 'snatches.php?id=' );
         $htmlout.= "<td data-label='{$lang["torrenttable_snatched"]}'  class='help-text' id='completedHelpText'><a href='$What_Script_S"."$id'>" . number_format($row["times_completed"]) . "<br>$_s</a></td>";
         if ($row["seeders"]) {
             if ($variant == "index") {
                 if ($row["leechers"]) $ratio = $row["seeders"] / $row["leechers"];
                 else $ratio = 1;
-                $What_Script_P = (OCELOT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
+                $What_Script_P = (XBT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
                 $htmlout.= "<td data-label='{$lang["torrenttable_seeders"]}'><b><a href='$What_Script_P"."$id#seeders'><font color='" . get_slr_color($ratio) . "'>" . (int)$row["seeders"] . "</font></a></b></td>";
             } else {
-                $What_Script_P = (OCELOT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
+                $What_Script_P = (XBT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
                 $htmlout.= "<td data-label='{$lang["torrenttable_seeders"]}'><b><a class='" . linkcolor($row["seeders"]) . "' href='$What_Script_P"."$id#seeders'>" . (int)$row["seeders"] . "</a></b></td>";
             }
         } else {
             $htmlout.= "<td data-label='{$lang["torrenttable_seeders"]}'><span class='" . linkcolor($row["seeders"]) . "'>" . (int)$row["seeders"] . "</span></td>";
         }
         if ($row["leechers"]) {
-            $What_Script_P = (OCELOT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
+            $What_Script_P = (XBT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
             if ($variant == "index") $htmlout.= "<td data-label='{$lang["torrenttable_leechers"]}'><b><a href='$What_Script_P"."$id#leechers'>" . number_format($row["leechers"]) . "</a></b></td>";
             else $htmlout.= "<td data-label='{$lang["torrenttable_leechers"]}'><b><a class='" . linkcolor($row["leechers"]) . "' href='$What_Script_P"."$id#leechers'>" . (int)$row["leechers"] . "</a></b></td>";
         } else $htmlout.= "<td data-label='{$lang["torrenttable_leechers"]}'>0</td>";

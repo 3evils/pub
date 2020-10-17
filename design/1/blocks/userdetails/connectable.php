@@ -19,9 +19,9 @@
 */
 //==Connectable and port shit
 if ($user['paranoia'] < 1 || $CURUSER['id'] == $id || $CURUSER['class'] >= UC_STAFF) {
-        $What_Cache = (OCELOT_TRACKER == true ? 'port_data_xbt_' : 'port_data_' );
+        $What_Cache = (XBT_TRACKER == true ? 'port_data_xbt_' : 'port_data_' );
     if (($port_data = $mc1->get_value($What_Cache . $id)) === false) {
-        if(OCELOT_TRACKER == true) {
+        if(XBT_TRACKER == true) {
         $q1 = sql_query('SELECT `connectable`, `peer_id` FROM `xbt_files_users` WHERE uid = ' . sqlesc($id) . ' LIMIT 1') or sqlerr(__FILE__, __LINE__);
         } else {
         $q1 = sql_query('SELECT connectable, port, agent FROM peers WHERE userid = ' . sqlesc($id) . ' LIMIT 1') or sqlerr(__FILE__, __LINE__);
@@ -31,9 +31,9 @@ if ($user['paranoia'] < 1 || $CURUSER['id'] == $id || $CURUSER['class'] >= UC_ST
     }
     if ($port_data > 0) {
         $connect = $port_data[0];
-        $port = (OCELOT_TRACKER == true ? '' : $port_data[1]);
-        $Ident_Client = (OCELOT_TRACKER == true ? $port_data['1'] : $port_data[2]);
-        $OCELOT_or_PHP = (OCELOT_TRACKER == true ? '1' : 'yes');
+        $port = (XBT_TRACKER == true ? '' : $port_data[1]);
+        $Ident_Client = (XBT_TRACKER == true ? $port_data['1'] : $port_data[2]);
+        $OCELOT_or_PHP = (XBT_TRACKER == true ? '1' : 'yes');
         if ($connect == $XBT_or_PHP) {
             $connectable = "<font color='green'><i class='fa fa-check' aria-hidden='true'></i></font>";
         } else {

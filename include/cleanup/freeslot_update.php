@@ -24,7 +24,7 @@ function docleanup($data)
     ignore_user_abort(1);
     sql_query("UPDATE `freeslots` SET `addedup` = 0 WHERE `addedup` != 0 AND `addedup` < " . TIME_NOW) or sqlerr(__FILE__, __LINE__);
     sql_query("UPDATE `freeslots` SET `addedfree` = 0 WHERE `addedfree` != 0 AND `addedfree` < " . TIME_NOW) or sqlerr(__FILE__, __LINE__);
-    if (OCELOT_TRACKER) {
+    if (XBT_TRACKER) {
         $fsq = sql_query("SELECT fs.userid, t.info_hash FROM `freeslots` AS fs LEFT JOIN `torrents` AS t ON t.id = fs.torrentid WHERE fs.`addedup` = 0 AND fs.`addedfree` = 0")  or sqlerr(__FILE__, __LINE__);
         while ($row = mysqli_fetch_assoc($fsq)) {
             require_once(CLASS_DIR . 'tracker.class.php');

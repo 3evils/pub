@@ -499,7 +499,7 @@ if ((isset($_POST['action'])) && ($_POST['action'] == "edituser")) {
         $updateset[] = "torrent_pass=" . sqlesc($newpasskey);
         $updateset[] = "torrent_pass_version=torrent_pass_version+1";
         $useredit['update'][] = $lang['modtask_torrent_pass'] . sqlesc($user['torrent_pass']) . $lang['modtask_torrent_pass_reset'] . $newpasskey . '';
-        if (OCELOT_TRACKER) {
+        if (XBT_TRACKER) {
             if ($user['torrent_pass'] != '') {
                 Tracker::update_tracker('change_passkey', array('oldpasskey' => $user['torrent_pass'], 'newpasskey' => $newpasskey));
             } else {
@@ -660,7 +660,7 @@ if ((isset($_POST['action'])) && ($_POST['action'] == "edituser")) {
             $curuser_cache['free_switch'] = $free_until;
             $user_cache['free_switch'] = $free_until;
         }
-        if (OCELOT_TRACKER) Tracker::update_tracker('update_user', array('passkey' => $user['torrent_pass'], 'free_switch' => $curuser_cache['free_switch'], 'can_leech' => $user['can_leech'], 'visible' => ($user['privacy'] != 'normal' ? 1 : 0)));
+        if (XBT_TRACKER) Tracker::update_tracker('update_user', array('passkey' => $user['torrent_pass'], 'free_switch' => $curuser_cache['free_switch'], 'can_leech' => $user['can_leech'], 'visible' => ($user['privacy'] != 'normal' ? 1 : 0)));
         sql_query("INSERT INTO messages (sender, receiver, subject, msg, added) 
                  VALUES (0, ".sqlesc($userid).", $subject, $msg, $added)") or sqlerr(__file__, __line__);
     }
@@ -765,7 +765,7 @@ if ((isset($_POST['action'])) && ($_POST['action'] == "edituser")) {
             $added = sqlesc(TIME_NOW);
             sql_query("INSERT INTO messages (sender, receiver, msg, subject, added) VALUES (0, ".sqlesc($userid).", $msg, $subject, $added)") or sqlerr(__file__, __line__);
         } else die(); //== Error
-        if (OCELOT_TRACKER) Tracker::update_tracker('update_user', array('passkey' => $user['torrent_pass'], 'free_switch' => (isset($curuser_cache['free_switch']) ? $curuser_cache['free_switch'] : $user['free_switch']), 'can_leech' => $can_leech, 'visible' => ($user['privacy'] != 'normal' ? 1 : 0)));
+        if (XBT_TRACKER) Tracker::update_tracker('update_user', array('passkey' => $user['torrent_pass'], 'free_switch' => (isset($curuser_cache['free_switch']) ? $curuser_cache['free_switch'] : $user['free_switch']), 'can_leech' => $can_leech, 'visible' => ($user['privacy'] != 'normal' ? 1 : 0)));
         $updateset[] = "can_leech = " . sqlesc($can_leech);
         $useredit['update'][] = $lang['modtask_canleech_edited'] . $can_leech . '';
         $curuser_cache['can_leech'] = $can_leech;

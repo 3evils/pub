@@ -27,10 +27,10 @@ $uploader = intval($_POST["uploader"]);
 $use_subject = true;
 $subject = "Request reseed!";
 $pm_msg = "User " . $CURUSER["username"] . " asked for a reseed on torrent " . $INSTALLER09['baseurl'] . "/details.php?id=" . $reseedid . " !\nThank You!";
-$What_id = (OCELOT_TRACKER == true ? 'fid' : 'torrentid');
-$What_user_id = (OCELOT_TRACKER == true ? 'uid' : 'userid');
-$What_Table = (OCELOT_TRACKER == true ? 'xbt_files_users' : 'snatched');
-$What_TF = (OCELOT_TRACKER == true ? "active='1'" : "seeder='yes'");
+$What_id = (XBT_TRACKER == true ? 'fid' : 'torrentid');
+$What_user_id = (XBT_TRACKER == true ? 'uid' : 'userid');
+$What_Table = (XBT_TRACKER == true ? 'xbt_files_users' : 'snatched');
+$What_TF = (XBT_TRACKER == true ? "active='1'" : "seeder='yes'");
 $pms = array();
 if ($pm_what == "last10") {
     $res = sql_query("SELECT $What_Table.$What_user_id as userid, $What_Table.$What_id FROM $What_Table WHERE $What_Table.$What_id =" . sqlesc($reseedid) . " AND $What_Table.$What_TF LIMIT 10") or sqlerr(__FILE__, __LINE__);

@@ -241,7 +241,7 @@ if ($num_pieces != $expected_pieces)
 $tmaker          = (isset($dict['created by']) && !empty($dict['created by'])) ? sqlesc($dict['created by']) : sqlesc($lang['takeupload_unkown']);
 $dict['comment'] = ("In using this torrent you are bound by the {$INSTALLER09['site_name']} Confidentiality Agreement By Law"); // change torrent comment
 // Replace punctuation characters with spaces
-$visible         = (OCELOT_TRACKER == true ? "yes" : "no");
+$visible         = (XBT_TRACKER == true ? "yes" : "no");
 $torrent         = str_replace("_", " ", $torrent);
 $vip             = (isset($_POST["vip"]) ? "1" : "0");
 
@@ -408,7 +408,7 @@ if (!$ret) {
         stderr($lang['takeupload_failed'], $lang['takeupload_already']);
     stderr($lang['takeupload_failed'], "mysql puked: " . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)));
 }
-if (OCELOT_TRACKER == false) {
+if (XBT_TRACKER == false) {
     remove_torrent($infohash);
 }
 $id = ((is_null($___mysqli_res = mysqli_insert_id($GLOBALS["___mysqli_ston"]))) ? false : $___mysqli_res);
@@ -572,7 +572,7 @@ $nthis = 0;
 }
 }
  *******************/
-if (OCELOT_TRACKER) {
+if (XBT_TRACKER) {
     Tracker::update_tracker('add_torrent', array('id' => $id, 'info_hash' => rawurlencode($infohash), 'freetorrent' => $freetorrent));
 }
 header("Location: {$INSTALLER09['baseurl']}/details.php?id=$id&uploaded=1");

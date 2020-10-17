@@ -64,7 +64,7 @@ function maketable($res)
         $downloaded = str_replace(" ", "<br />", mksize($arr["downloaded"]));
         $seeders = number_format($arr["seeders"]);
         $leechers = number_format($arr["leechers"]);
-        $OCELOT_or_PHP = (OCELOT_TRACKER == true ? $arr['fid'] : $arr['torrent']);
+        $OCELOT_or_PHP = (XBT_TRACKER == true ? $arr['fid'] : $arr['torrent']);
         $htmlout.= "<tbody><tr>
 		<td data-label='{$lang['userdetails_type']}'>$catimage</td>" . "
 		<td data-label='{$lang['userdetails_name']}'><a href='details.php?id=" . (int)$OCELOT_or_PHP . "&amp;hit=1'><b>" . htmlsafechars($arr['torrentname']) . "</b></a></td>

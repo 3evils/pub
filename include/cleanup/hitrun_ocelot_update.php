@@ -52,8 +52,8 @@ function docleanup($data)
 	         sql_query("INSERT INTO messages (sender, receiver, added, msg, subject, poster) VALUES ".implode(',',$_pms)) or sqlerr(__FILE__, __LINE__);	
 	         if(count($_users) > 0)
 	         sql_query("INSERT INTO users(id,hit_and_run_total,downloadpos,hnrwarn,can_leech,modcomment) VALUES ".implode(',',$_users)." ON DUPLICATE key UPDATE hit_and_run_total=hit_and_run_total+values(hit_and_run_total),downloadpos=values(downloadpos),hnrwarn=values(hnrwarn),can_leech=values(can_leech),modcomment=values(modcomment)") or sqlerr(__FILE__, __LINE__);
-        if (OCELOT_TRACKER) require_once(CLASS_DIR . 'tracker.class.php');
-        if (OCELOT_TRACKER) Tracker::update_tracker('update_user', array('passkey' => $arr_fuckers['torrent_pass'], 'free_switch' => $arr_fuckers['free_switch'], 'can_leech' => 0, 'visible' => ($arr_fuckers['privacy'] != 'normal' ? 1 : 0)));
+        if (XBT_TRACKER) require_once(CLASS_DIR . 'tracker.class.php');
+        if (XBT_TRACKER) Tracker::update_tracker('update_user', array('passkey' => $arr_fuckers['torrent_pass'], 'free_switch' => $arr_fuckers['free_switch'], 'can_leech' => 0, 'visible' => ($arr_fuckers['privacy'] != 'normal' ? 1 : 0)));
 	    unset($_pms,$_users);
             $update['hit_and_run_total'] = ($arr_fuckers['hit_and_run_total'] + $arr_fuckers['poop']);
             $mc1->begin_transaction('user'.$arr_fuckers['uid']);

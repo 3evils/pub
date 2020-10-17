@@ -38,7 +38,7 @@ if (!defined('IN_INSTALLER09_ADMIN')) {
     echo $HTMLOUT;
     exit();
 }
-if (OCELOT_TRACKER) stderr("Unable to use", "This tool is not able to be used with Ocelot enabled.");
+if (XBT_TRACKER) stderr("Unable to use", "This tool is not able to be used with Ocelot enabled.");
 require_once (INCL_DIR . 'user_functions.php');
 require_once (CLASS_DIR . 'class_check.php');
 $lang = array_merge($lang, load_language('ad_freelech'));

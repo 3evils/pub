@@ -37,15 +37,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (sql_query('INSERT INTO tickets(user) VALUES ' . join(', ', $t))) {
         sql_query('UPDATE users SET seedbonus = seedbonus - ' . ($tickets * $lottery_config['ticket_amount']) . ' WHERE id = ' . $CURUSER['id']);
         $seedbonus_new = $CURUSER['seedbonus'] - ($tickets * $lottery_config['ticket_amount']);
-        $What_Cache = (OCELOT_TRACKER == true ? 'userstats_xbt_' : 'userstats_');
-        $What_Expire = (OCELOT_TRACKER == true ? $INSTALLER09['expires']['u_stats_xbt'] : $INSTALLER09['expires']['u_stats']);
+        $What_Cache = (XBT_TRACKER == true ? 'userstats_xbt_' : 'userstats_');
+        $What_Expire = (XBT_TRACKER == true ? $INSTALLER09['expires']['u_stats_xbt'] : $INSTALLER09['expires']['u_stats']);
         $mc1->begin_transaction($What_Cache . $CURUSER['id']);
         $mc1->update_row(false, array(
         'seedbonus' => $seedbonus_new
         ));
         $mc1->commit_transaction($What_Expire);
-        $What_Cache = (OCELOT_TRACKER == true ? 'user_stats_xbt_' : 'user_stats_');
-        $What_Expire = (OCELOT_TRACKER == true ? $INSTALLER09['expires']['user_stats_xbt'] : $INSTALLER09['expires']['user_stats']);
+        $What_Cache = (XBT_TRACKER == true ? 'user_stats_xbt_' : 'user_stats_');
+        $What_Expire = (XBT_TRACKER == true ? $INSTALLER09['expires']['user_stats_xbt'] : $INSTALLER09['expires']['user_stats']);
         $mc1->begin_transaction($What_Cache . $CURUSER['id']);
         $mc1->update_row(false, array(
         'seedbonus' => $seedbonus_new

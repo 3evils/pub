@@ -104,7 +104,7 @@ if ($CURUSER['class'] >= UC_STAFF && $user["class"] < $CURUSER['class']) {
 			<input name='avatar_rights' value='no' type='radio'".($user['avatar_rights'] == "no" ? " checked='checked'" : "").">{$lang['userdetails_no']}</p>
 			</div>";
 			//==High speed php announce
-			if ($CURUSER["class"] == UC_MAX && OCELOT_TRACKER == false) {
+			if ($CURUSER["class"] == UC_MAX && XBT_TRACKER == false) {
 				 $HTMLOUT.= "<div class='small-6 medium-4 large-2 columns'>
 			<span class='primary label'>{$lang['userdetails_highspeed']}</span>
 				 <p><input type='radio' name='highspeed' value='yes' ".($user["highspeed"] == "yes" ? " checked='checked'" : "").">{$lang['userdetails_yes']}
@@ -119,7 +119,7 @@ if ($CURUSER['class'] >= UC_STAFF && $user["class"] < $CURUSER['class']) {
 			</div>";
 			//==end invites
 			//==OCELOT - Can Leech
-			if (OCELOT_TRACKER == true) {
+			if (XBT_TRACKER == true) {
 				$HTMLOUT.= "<div class='small-6 medium-4 large-2 columns'>
 				<span class='primary label'>{$lang['userdetails_canleech']}</span>
 					<p><input type='radio' name='can_leech' value='1' " . ($user["can_leech"] == 1 ? " checked='checked'" : "") . ">{$lang['userdetails_yes']}
@@ -239,7 +239,7 @@ if ($CURUSER['class'] >= UC_STAFF && $user["class"] < $CURUSER['class']) {
 	</div>";
     //==end
 	$HTMLOUT.= "<div class='medium-6 large-6 columns'>";
-	if ($CURUSER['class'] >= UC_STAFF && OCELOT_TRACKER == false) 
+	if ($CURUSER['class'] >= UC_STAFF && XBT_TRACKER == false) 
 		$HTMLOUT.= "<p class='text-left'>{$lang['userdetails_freeleech_slots']}</p>
 			<input type='text' name='freeslots' value='" . (int)$user['freeslots'] . "'>";
 	$HTMLOUT.="</div>
@@ -326,7 +326,7 @@ if ($CURUSER['class'] >= UC_STAFF && $user["class"] < $CURUSER['class']) {
 	///==Start row for download and upload disable==//
 	$HTMLOUT.="<div class='row callout primary'>";
     //==Download disable== editted for announce======//
-    if ($CURUSER['class'] >= UC_STAFF && OCELOT_TRACKER == false) {
+    if ($CURUSER['class'] >= UC_STAFF && XBT_TRACKER == false) {
         $downloadpos = $user['downloadpos'] != 1;
 		$HTMLOUT.="<div class='medium-6 large-6 columns'>";
         $HTMLOUT.= "<span class='label float-left'><b>{$lang['userdetails_dpos']}</b></span>" . ($downloadpos ? "
@@ -567,7 +567,7 @@ if ($CURUSER['class'] >= UC_STAFF && $user["class"] < $CURUSER['class']) {
 	///==End row for warning and warning disable==//
 	///==Start row for freeleech and lech warning disable==///
 	$HTMLOUT.="<div class='row callout primary'>";
-	if ($CURUSER['class'] >= UC_ADMINISTRATOR && OCELOT_TRACKER == false) {
+	if ($CURUSER['class'] >= UC_ADMINISTRATOR && XBT_TRACKER == false) {
         $free_switch = $user['free_switch'] != 0;
 		$HTMLOUT.="<div class='medium-6 large-6 columns'>";
         $HTMLOUT.= "<span class='label float-left'><b>{$lang['userdetails_freeleech_status']}</b></span>" . ($free_switch ? "<input name='free_switch' value='42' type='hidden'>
@@ -687,7 +687,7 @@ if ($CURUSER['class'] >= UC_STAFF && $user["class"] < $CURUSER['class']) {
 		</div>";
     }
 	///*** ALL BITS AND BOBS START HERE ***///
-	if (OCELOT_TRACKER == true) {
+	if (XBT_TRACKER == true) {
         // == Wait time
         if ($CURUSER['class'] >= UC_STAFF) 
 			$HTMLOUT.= "<div class='small-1 columns'>{$lang['userdetails_waittime']}

@@ -74,7 +74,7 @@ function snatchtable_staff($res)
             $ratio = $lang['userdetails_inf'];
         else
             $ratio = "N/A";
-        if (OCELOT_TRACKER === false) {
+        if (XBT_TRACKER === false) {
             $htmlout_snatch .= "<tbody>
 				<tr>
 					<td data-label='{$lang['userdetails_s_cat']}'>
@@ -102,7 +102,7 @@ function snatchtable_staff($res)
     return $htmlout_snatch;
 }
 if ($CURUSER['class'] >= UC_STAFF) {
-    if (OCELOT_TRACKER === false) {
+    if (XBT_TRACKER === false) {
         $res = sql_query("SELECT sn.start_date AS s, sn.complete_date AS c, sn.last_action AS l_a, sn.seedtime AS s_t, sn.seedtime, sn.leechtime AS l_t, sn.leechtime, sn.downspeed, sn.upspeed, sn.uploaded, sn.downloaded, sn.torrentid, sn.start_date, sn.complete_date, sn.seeder, sn.last_action, sn.connectable, sn.agent, sn.seedtime, sn.port, cat.name, cat.image, t.size, t.seeders, t.leechers, t.owner, t.name AS torrent_name " . "FROM snatched AS sn " . "LEFT JOIN torrents AS t ON t.id = sn.torrentid " . "LEFT JOIN categories AS cat ON cat.id = t.category " . "WHERE sn.userid=" . sqlesc($id) . " AND sn.torrentid IN (SELECT id FROM torrents) ORDER BY sn.start_date DESC") or sqlerr(__FILE__, __LINE__);
     } else {
         $res = sql_query("SELECT x.started AS s, x.completedtime AS c, x.mtime AS l_a, x.seedtime AS s_t, x.seedtime, x.leechtime AS l_t, x.leechtime, x.downspeed, x.upspeed, x.uploaded, x.downloaded, x.fid, x.started, x.completedtime, x.active, x.mtime, x.connectable, x.peer_id, cat.name, cat.image, t.size, t.seeders, t.leechers, t.owner, t.name AS torrent_name " . "FROM xbt_files_users AS x " . "LEFT JOIN torrents AS t ON t.id = x.fid " . "LEFT JOIN categories AS cat ON cat.id = t.category " . "WHERE x.uid=" . sqlesc($id) . " AND x.fid IN (SELECT id FROM torrents) ORDER BY x.started DESC") or sqlerr(__FILE__, __LINE__);

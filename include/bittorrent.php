@@ -425,9 +425,9 @@ function userlogin()
         }
     }
     // user stats - *Updated*
-    $What_Cache = (OCELOT_TRACKER == true ? 'userstats_ocelot_' : 'userstats_');
+    $What_Cache = (XBT_TRACKER == true ? 'userstats_ocelot_' : 'userstats_');
     if (($stats = $mc1->get_value($What_Cache.$id)) === false) {
-    $What_Expire = (OCELOT_TRACKER == true ? $INSTALLER09['expires']['u_stats_ocelot'] : $INSTALLER09['expires']['u_stats']);
+    $What_Expire = (XBT_TRACKER == true ? $INSTALLER09['expires']['u_stats_ocelot'] : $INSTALLER09['expires']['u_stats']);
         $stats_fields_ar_int = array(
             'uploaded',
             'downloaded'

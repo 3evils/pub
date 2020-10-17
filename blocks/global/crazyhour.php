@@ -23,7 +23,7 @@
                | E | v | i | l )-| T | r | i | n | i | t | y )
                 \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/ \_/
 */
-if(OCELOT_TRACKER == false AND $INSTALLER09['crazy_hour'] == true) {
+if(XBT_TRACKER == false AND $INSTALLER09['crazy_hour'] == true) {
 function crazyhour()
 {
     global $CURUSER, $INSTALLER09, $mc1, $lang;

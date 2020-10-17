@@ -29,7 +29,7 @@ require_once (INCL_DIR . 'user_functions.php');
 dbconn();
 loggedinorreturn();
 $lang = array_merge(load_language('global'));
-if(OCELOT_TRACKER === true)
+if(XBT_TRACKER === true)
 stderr('Error', 'Sitepot not available when Ocelot tracker is active');
 /** Size of Pot**/
 $potsize = 50000;

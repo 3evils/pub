@@ -88,7 +88,7 @@ elseif ($rt == 4) {
     if (!$reason[3]) stderr("{$lang['delete_failed']}", "{$lang['delete_reason']}");
     $reasonstr = trim($reason[3]);
 }
-if (OCELOT_TRACKER == true) {
+if (XBT_TRACKER == true) {
 deletetorrent_ocelot($id);
 } else {
 deletetorrent($id);

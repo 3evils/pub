@@ -760,7 +760,7 @@ $mc1->commit_transaction($INSTALLER09['expires']['u_stats']);
 $mc1->begin_transaction('user_stats_'.$userid);
 $mc1->update_row(false, array('seedbonus' => $seedbonus, 'bonuscomment' => $bonuscomment));
 $mc1->commit_transaction($INSTALLER09['expires']['user_stats']);
-if (OCELOT_TRACKER) Tracker::update_tracker('update_user', array('passkey' => $CURUSER['torrent_pass'], 'free_switch' => $free_switch, 'can_leech' => $CURUSER['can_leech'], 'visible' => ($CURUSER['privacy'] != 'normal' ? 1 : 0)));
+if (XBT_TRACKER) Tracker::update_tracker('update_user', array('passkey' => $CURUSER['torrent_pass'], 'free_switch' => $free_switch, 'can_leech' => $CURUSER['can_leech'], 'visible' => ($CURUSER['privacy'] != 'normal' ? 1 : 0)));
 header("Refresh: 0; url={$INSTALLER09['baseurl']}/mybonus.php?freeyear_success=1");
 die;
 break;
@@ -990,8 +990,8 @@ write_bonus_log($CURUSER["id"], $donation, $type = "freeleech");
 $msg = $CURUSER['username']. " Donated ".$donation." karma point".($donation > 1?'s':'')." into the freeleech contribution pot and has activated freeleech for 3 days ". $donation ."/".$points.'';
 $mc1->delete_value('shoutbox_');
 autoshout($msg);
-if(OCELOT_TRACKER) replaceInFile('^sitefree\s*= false', "sitefree\t\t\t= true", OCELOT_CONF);
-if(OCELOT_TRACKER) Tracker::reload_config();
+if(XBT_TRACKER) replaceInFile('^sitefree\s*= false', "sitefree\t\t\t= true", OCELOT_CONF);
+if(XBT_TRACKER) Tracker::reload_config();
 header("Refresh: 0; url={$INSTALLER09['baseurl']}//mybonus.php?freeleech_success=1&norefund=$norefund");
 die;
 } else {
@@ -1057,8 +1057,8 @@ write_bonus_log($CURUSER["id"], $donation, $type = "doubleupload");
 $msg = $CURUSER['username']. " Donated ".$donation." karma point".($donation > 1?'s':'')." into the double upload contribution pot and has activated Double Upload for 3 days ". $donation ."/".$points.'';
 $mc1->delete_value('shoutbox_');
 autoshout($msg);
-if(OCELOT_TRACKER) replaceInFile('^sitedouble\s*= false', "sitedouble\t\t\t= true", OCELOT_CONF);
-if(OCELOT_TRACKER) Tracker::reload_config();
+if(XBT_TRACKER) replaceInFile('^sitedouble\s*= false', "sitedouble\t\t\t= true", OCELOT_CONF);
+if(XBT_TRACKER) Tracker::reload_config();
 header("Refresh: 0; url={$INSTALLER09['baseurl']}/mybonus.php?doubleup_success=1&norefund=$norefund");
 die;
 } else {
@@ -1124,8 +1124,8 @@ write_bonus_log($CURUSER["id"], $donation, $type = "halfdownload");
 $msg = $CURUSER['username']. " Donated ".$donation." karma point".($donation > 1?'s':'')." into the half download contribution pot and has activated half download for 3 days ". $donation ."/".$points.'';
 $mc1->delete_value('shoutbox_');
 autoshout($msg);
-if(OCELOT_TRACKER) replaceInFile('^sitehalf\s*= false', "sitehalf\t\t\t= true", OCELOT_CONF);
-if(OCELOT_TRACKER) Tracker::reload_config();
+if(XBT_TRACKER) replaceInFile('^sitehalf\s*= false', "sitehalf\t\t\t= true", OCELOT_CONF);
+if(XBT_TRACKER) Tracker::reload_config();
 header("Refresh: 0; url={$INSTALLER09['baseurl']}/mybonus.php?halfdown_success=1&norefund=$norefund");
 die;
 } else {
@@ -1400,7 +1400,7 @@ $fpoints = $dpoints = $hpoints = $freeleech_enabled = $double_upload_enabled = $
 // eZER0's mod for bonus contribution
 // Limited this to 3 because of performance reasons and i wanted to go through last 3 events, anyway the most we can have
 // is that halfdownload is enabled, double upload is enabled as well as freeleech !
-    if (OCELOT_TRACKER == false) {
+    if (XBT_TRACKER == false) {
     if(($scheduled_events = $mc1->get_value('freecontribution_datas_')) === false) {
     $scheduled_events = mysql_fetch_all("SELECT * from `events` ORDER BY `startTime` DESC LIMIT 3;", array());
     $mc1->cache_value('freecontribution_datas_', $scheduled_events, 3 * 86400);
@@ -1653,7 +1653,7 @@ if(($halfdownload_counter = $mc1->get_value('halfdownload_counter')) === false) 
     }
     //$mc1->delete_value('top_donators3_');
     //==End
-	if (OCELOT_TRACKER == false) {
+	if (XBT_TRACKER == false) {
 		//== Show the percentages
 		$HTMLOUT .="<div class='card'>
 		<div class='card-section'>&nbsp;FreeLeech&nbsp;[&nbsp;";

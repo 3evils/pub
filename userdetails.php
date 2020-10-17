@@ -222,9 +222,9 @@ if (($user = $mc1->get_value('user' . $id)) === false) {
 }
 if ($user["status"] == "pending") stderr($lang['userdetails_error'], $lang['userdetails_pending']);
 // user stats
-$What_Cache = (OCELOT_TRACKER == true ? 'user_stats_ocelot_' : 'user_stats_');
+$What_Cache = (XBT_TRACKER == true ? 'user_stats_ocelot_' : 'user_stats_');
 if (($user_stats = $mc1->get_value($What_Cache.$id)) === false) {
-    $What_Expire = (OCELOT_TRACKER == true ? $INSTALLER09['expires']['user_stats_ocelot'] : $INSTALLER09['expires']['user_stats']);
+    $What_Expire = (XBT_TRACKER == true ? $INSTALLER09['expires']['user_stats_ocelot'] : $INSTALLER09['expires']['user_stats']);
     $stats_fields_ar_int = array(
             'uploaded',
             'downloaded'
@@ -265,7 +265,7 @@ if ($user['paranoia'] == 3 && $CURUSER['class'] < UC_STAFF && $CURUSER['id'] <> 
 if (isset($_GET['delete_hit_and_run']) && $CURUSER['class'] >= UC_STAFF) {
     $delete_me = isset($_GET['delete_hit_and_run']) ? intval($_GET['delete_hit_and_run']) : 0;
     if (!is_valid_id($delete_me)) stderr($lang['userdetails_error'], $lang['userdetails_bad_id']);
-    if(OCELOT_TRACKER === false) {
+    if(XBT_TRACKER === false) {
     sql_query('UPDATE snatched SET hit_and_run = \'0\', mark_of_cain = \'no\' WHERE id = ' . sqlesc($delete_me)) or sqlerr(__FILE__, __LINE__);
     } else {
     sql_query('UPDATE xbt_files_users SET hit_and_run = \'0\', mark_of_cain = \'no\' WHERE fid = ' . sqlesc($delete_me)) or sqlerr(__FILE__, __LINE__);
@@ -296,7 +296,7 @@ if ((($user['class'] >= UC_STAFF OR $user['id'] == $CURUSER['id']) || ($user['cl
     elseif ($_GET['stealth'] == 'no') $HTMLOUT.= "<div class='row'><div class'col-md-4'>". stealth($id, false). "</div></div";
 } // End
 
-if (OCELOT_TRACKER == true) {
+if (XBT_TRACKER == true) {
     $res = sql_query("SELECT x.fid, x.uploaded, x.downloaded, x.active, x.left, t.added, t.name as torrentname, t.size, t.category, t.seeders, t.leechers, c.name as catname, c.image FROM xbt_files_users x LEFT JOIN torrents t ON x.fid = t.id LEFT JOIN categories c ON t.category = c.id WHERE x.uid=" . sqlesc($id) . " AND active = 1") or sqlerr(__FILE__, __LINE__);
     while ($arr = mysqli_fetch_assoc($res)) {
         if ($arr['left'] == '0') $seeding[] = $arr;
@@ -400,7 +400,7 @@ if (curuser::$blocks['userdetails_page'] & block_userdetails::SEEDTIME_RATIO && 
 if (curuser::$blocks['userdetails_page'] & block_userdetails::TORRENTS_BLOCK && $BLOCKS['userdetails_torrents_block_on']) {
     require_once (BLOCK_DIR . 'userdetails/torrents_block.php');
 }
-if (curuser::$blocks['userdetails_page'] & block_userdetails::COMPLETED && $BLOCKS['userdetails_completed_on']/* && OCELOT_TRACKER == false*/) {
+if (curuser::$blocks['userdetails_page'] & block_userdetails::COMPLETED && $BLOCKS['userdetails_completed_on']/* && XBT_TRACKER == false*/) {
     require_once (BLOCK_DIR . 'userdetails/completed.php');
 }
 if (curuser::$blocks['userdetails_page'] & block_userdetails::CONNECTABLE_PORT && $BLOCKS['userdetails_connectable_port_on']) {
@@ -413,7 +413,7 @@ $HTMLOUT.= "<table class='table table-bordered'>";
 if (curuser::$blocks['userdetails_page'] & block_userdetails::TORRENTS_BLOCK && $BLOCKS['userdetails_torrents_block_on']) {
     require_once (BLOCK_DIR . 'userdetails/snatched_block.php');
 }
-if (curuser::$blocks['userdetails_page'] & block_userdetails::SNATCHED_STAFF && $BLOCKS['userdetails_snatched_staff_on']/* && OCELOT_TRACKER == false*/) {
+if (curuser::$blocks['userdetails_page'] & block_userdetails::SNATCHED_STAFF && $BLOCKS['userdetails_snatched_staff_on']/* && XBT_TRACKER == false*/) {
     require_once (BLOCK_DIR . 'userdetails/snatched_staff.php');
 }
 $HTMLOUT.= "</table>";
@@ -493,7 +493,7 @@ if (curuser::$blocks['userdetails_page'] & block_userdetails::REPUTATION && $BLO
 if (curuser::$blocks['userdetails_page'] & block_userdetails::PROFILE_HITS && $BLOCKS['userdetails_profile_hits_on']) {
     require_once (BLOCK_DIR . 'userdetails/userhits.php');
 }
-if (curuser::$blocks['userdetails_page'] & block_userdetails::FREESTUFFS && $BLOCKS['userdetails_freestuffs_on'] && OCELOT_TRACKER == false) {
+if (curuser::$blocks['userdetails_page'] & block_userdetails::FREESTUFFS && $BLOCKS['userdetails_freestuffs_on'] && XBT_TRACKER == false) {
     require_once (BLOCK_DIR . 'userdetails/freestuffs.php');
 }
 if (curuser::$blocks['userdetails_page'] & block_userdetails::COMMENTS && $BLOCKS['userdetails_comments_on']) {

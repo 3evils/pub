@@ -28,11 +28,11 @@ function docleanup($data)
     $registered = get_row_count('users');
     $unverified = get_row_count('users', "WHERE status='pending'");
     $torrents = get_row_count('torrents');
-    $seeders = (OCELOT_TRACKER == true ? $OCELOT_Seeder : get_row_count('peers', "WHERE seeder='yes'"));
-    $leechers = (OCELOT_TRACKER == true ? $OCELOT_Leecher : get_row_count('peers', "WHERE seeder='no'"));
+    $seeders = (XBT_TRACKER == true ? $OCELOT_Seeder : get_row_count('peers', "WHERE seeder='yes'"));
+    $leechers = (XBT_TRACKER == true ? $OCELOT_Leecher : get_row_count('peers', "WHERE seeder='no'"));
     $torrentstoday = get_row_count('torrents', 'WHERE added > ' . TIME_NOW . ' - 86400');
     $donors = get_row_count('users', "WHERE donor ='yes'");
-    $unconnectables = (OCELOT_TRACKER == true ? '0' : get_row_count("peers", " WHERE connectable='no'"));
+    $unconnectables = (XBT_TRACKER == true ? '0' : get_row_count("peers", " WHERE connectable='no'"));
     $forumposts = get_row_count("posts");
     $forumtopics = get_row_count("topics");
     $dt = TIME_NOW - 300; // Active users last 5 minutes

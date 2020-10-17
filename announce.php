@@ -26,7 +26,7 @@
 require_once ("include/ann_config.php");
 require_once (INCL_DIR . 'ann_functions.php');
 if (isset($_SERVER['HTTP_COOKIE']) || isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) || isset($_SERVER['HTTP_ACCEPT_CHARSET'])) exit('It takes 46 muscles to frown but only 4 to flip \'em the bird.');
-if (OCELOT_TRACKER == true) {
+if (XBT_TRACKER == true) {
     err('Please redownload this torrent from the tracker');
 }
 gzip();

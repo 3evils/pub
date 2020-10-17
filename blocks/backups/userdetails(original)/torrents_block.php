@@ -44,7 +44,7 @@ function maketable($res)
         $downloaded = str_replace(" ", "<br />", mksize($arr["downloaded"]));
         $seeders = number_format($arr["seeders"]);
         $leechers = number_format($arr["leechers"]);
-        $OCELOT_or_PHP = (OCELOT_TRACKER == true ? $arr['fid'] : $arr['torrent']);
+        $OCELOT_or_PHP = (XBT_TRACKER == true ? $arr['fid'] : $arr['torrent']);
         $htmlout.= "<tr><td style='padding: 0px'>$catimage</td>\n" . "<td><a href='details.php?id=" . (int)$OCELOT_or_PHP . "&amp;hit=1'><b>" . htmlsafechars($arr['torrentname']) . "</b></a></td><td align='center'>$size</td><td align='right'>$seeders</td><td align='right'>$leechers</td><td align='center'>$uploaded</td>\n" . "" . ($INSTALLER09['ratio_free'] ? "" : "<td align='center'>$downloaded</td>") . "<td align='center'>$ratio</td></tr>\n";
     }
     $htmlout.= "</table>\n";

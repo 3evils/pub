@@ -87,8 +87,8 @@ function OCELOT_IP_CONVERT($a)
     $d = join('.', $b);
     return ($d);
 }
-$Which_ID = (OCELOT_TRACKER == true ? 'fid' : 'id');
-$Which_Table = (OCELOT_TRACKER == true ? 'xbt_files_users' : 'peers');
+$Which_ID = (XBT_TRACKER == true ? 'fid' : 'id');
+$Which_Table = (XBT_TRACKER == true ? 'xbt_files_users' : 'peers');
 $res = sql_query("SELECT COUNT($Which_ID) FROM $Which_Table") or sqlerr(__FILE__, __LINE__);
 $row = mysqli_fetch_row($res);
 $count = $row[0];
@@ -99,14 +99,14 @@ $HTMLOUT.= "<h2 align='center'>{$lang['wpeers_h2']}</h2>
 $HTMLOUT .= "<div class='row'><div class='col-md-12'>";
 $pager = pager($peersperpage, $count, "staffpanel.php?tool=view_peers&amp;action=view_peers&amp;");
 if ($count > $peersperpage) $HTMLOUT.= $pager['pagertop'];
-if (OCELOT_TRACKER == true) {
+if (XBT_TRACKER == true) {
     $sql = "SELECT x.fid, x.uid, x.left, x.active, x.peer_id, x.ipa, x.uploaded, x.downloaded, x.leechtime, x.seedtime, x.upspeed, x.downspeed, x.mtime, x.completedtime, u.torrent_pass, u.username, t.seeders, t.leechers, t.name FROM `xbt_files_users` AS x LEFT JOIN users AS u ON u.id=x.uid LEFT JOIN torrents AS t ON t.id=x.fid WHERE `left` >= 0 AND t.leechers >= 0 ORDER BY fid DESC {$pager['limit']}";
 } else {
     $sql = "SELECT p.id, p.userid, p.torrent, p.torrent_pass, p.peer_id, p.ip, p.port, p.uploaded, p.downloaded, p.to_go, p.seeder, p.started, p.last_action, p.connectable, p.agent, p.finishedat, p.downloadoffset, p.uploadoffset, u.username, t.name " . "FROM peers AS p " . "LEFT JOIN users AS u ON u.id=p.userid " . "LEFT JOIN torrents AS t ON t.id=p.torrent WHERE started != '0'" . "ORDER BY p.started DESC {$pager['limit']}";
 }
 $result = sql_query($sql) or sqlerr(__FILE__, __LINE__);
 if (mysqli_num_rows($result) != 0) {
-    if (OCELOT_TRACKER == true) {
+    if (XBT_TRACKER == true) {
         $HTMLOUT.= "<table class='table table-bordered'>
 <tr>
 <td class='colhead' align='center' width='1%'>{$lang['wpeers_user']}</td>
@@ -145,11 +145,11 @@ if (mysqli_num_rows($result) != 0) {
         if ($smallname != htmlsafechars($row["name"])) {
             $smallname.= '...';
         }
-        if (OCELOT_TRACKER == true) {
+        if (XBT_TRACKER == true) {
         $upspeed = ($row["upspeed"] > 0 ? mksize($row["upspeed"]) : ($row["seedtime"] > 0 ? mksize($row["uploaded"] / ($row["seedtime"] + $row["leechtime"])) : mksize(0)));
         $downspeed = ($row["downspeed"] > 0 ? mksize($row["downspeed"]) : ($row["leechtime"] > 0 ? mksize($row["downloaded"] / $row["leechtime"]) : mksize(0)));
         }
-        if (OCELOT_TRACKER == true) {
+        if (XBT_TRACKER == true) {
             $HTMLOUT.= '<tr>
 <td><a href="userdetails.php?id=' . (int)($row['uid']) . '">' . htmlsafechars($row['username']) . '</a></td>
 <td><a href="details.php?id=' . (int)($row['fid']) . '">' . $smallname . '</a></td>

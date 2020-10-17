@@ -24,11 +24,11 @@
                 \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/ \_/
 */
 //=== testing concept of "share ratio"
-$What_Cache = (OCELOT_TRACKER == true ? 'share_ratio_xbt_' : 'share_ratio_');
-$What_Table = (OCELOT_TRACKER == true ? 'xbt_files_users' : 'snatched');
-$What_String = (OCELOT_TRACKER == true ? 'fid' : 'id');
-$What_User_String = (OCELOT_TRACKER == true ? 'uid' : 'userid');
-$What_Expire = (OCELOT_TRACKER == true ? $INSTALLER09['expires']['share_ratio_ocelot'] : $INSTALLER09['expires']['share_ratio']);
+$What_Cache = (XBT_TRACKER == true ? 'share_ratio_xbt_' : 'share_ratio_');
+$What_Table = (XBT_TRACKER == true ? 'xbt_files_users' : 'snatched');
+$What_String = (XBT_TRACKER == true ? 'fid' : 'id');
+$What_User_String = (XBT_TRACKER == true ? 'uid' : 'userid');
+$What_Expire = (XBT_TRACKER == true ? $INSTALLER09['expires']['share_ratio_ocelot'] : $INSTALLER09['expires']['share_ratio']);
 if (($cache_share_ratio = $mc1->get_value($What_Cache.$id)) === false) {
     $cache_share_ratio = mysqli_fetch_assoc(sql_query("SELECT SUM(seedtime) AS seed_time_total, COUNT($What_String) AS total_number FROM $What_Table WHERE seedtime > '0' AND $What_User_String =" . sqlesc($user['id'])));
     $cache_share_ratio['total_number'] = (int)$cache_share_ratio['total_number'];

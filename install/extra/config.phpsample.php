@@ -39,7 +39,7 @@ die('A 64bit or higher OS + Processor is required.');
 
 define('EMAIL_CONFIRM', true);
 define('SQL_DEBUG', 1);
-define('OCELOT_TRACKER', false);
+define('XBT_TRACKER', false);
 //==charset
 $INSTALLER09['char_set'] = 'UTF-8'; //also to be used site wide in meta tags
 if (ini_get('default_charset') != $INSTALLER09['char_set']) {
@@ -225,7 +225,7 @@ $INSTALLER09['nameblacklist'] = ROOT_DIR . 'cache' . DIRECTORY_SEPARATOR . 'name
 $INSTALLER09['happyhour'] = CACHE_DIR . 'happyhour' . DIRECTORY_SEPARATOR . 'happyhour.txt';
 $INSTALLER09['sql_error_log'] = ROOT_DIR . 'sqlerr_logs' . DIRECTORY_SEPARATOR . 'sql_err_' . date('M_D_Y') . '.log';
 //== PHP or Ocelot announce
-if (OCELOT_TRACKER == true) {
+if (XBT_TRACKER == true) {
 $INSTALLER09['ocelot_prefix'] = '#announce_urls:2710/';  
 $INSTALLER09['ocelot_suffix'] = '/announce';
 $INSTALLER09['announce_urls'][] = '#announce_urls:2710/announce';

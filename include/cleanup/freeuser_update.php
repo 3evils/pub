@@ -22,7 +22,7 @@ function docleanup($data)
     global $INSTALLER09, $queries, $mc1;
     set_time_limit(0);
     ignore_user_abort(1);
-    if (OCELOT_TRACKER) require_once(CLASS_DIR . 'tracker.class.php');
+    if (XBT_TRACKER) require_once(CLASS_DIR . 'tracker.class.php');
     //=== Free user removal by Bigjoos/pdq:)
     $res = sql_query("SELECT id, modcomment, torrent_pass, can_leech, privacy FROM users WHERE free_switch > 1 AND free_switch < " . TIME_NOW) or sqlerr(__FILE__, __LINE__);
     $msgs_buffer = $users_buffer = array();
@@ -52,7 +52,7 @@ function docleanup($data)
             $mc1->commit_transaction($INSTALLER09['expires']['curuser']);
             $mc1->delete_value('inbox_new_' . $arr['id']);
             $mc1->delete_value('inbox_new_sb_' . $arr['id']);
-            if (OCELOT_TRACKER) Tracker::update_tracker('update_user', array('passkey' => $arr['torrent_pass'], 'free_switch' => 0, 'can_leech' => $arr['can_leech'], 'visible' => ($arr['privacy'] != 'normal' ? 1 : 0)));
+            if (XBT_TRACKER) Tracker::update_tracker('update_user', array('passkey' => $arr['torrent_pass'], 'free_switch' => 0, 'can_leech' => $arr['can_leech'], 'visible' => ($arr['privacy'] != 'normal' ? 1 : 0)));
         }
         $count = count($users_buffer);
         if ($count > 0) {

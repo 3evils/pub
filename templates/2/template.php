@@ -222,7 +222,7 @@ if ($CURUSER) {
 			if (curuser::$blocks['global_stdhead'] & block_stdhead::STDHEAD_FREELEECH_CONTRIBUTION && $BLOCKS['global_freeleech_contribution_on']) {
 			require_once (BLOCK_DIR.'global/freeleech_contribution.php');
 			}
-			    if (OCELOT_TRACKER == true) {
+			    if (XBT_TRACKER == true) {
         if (($ocelotcheck = $mc1->get_value('ocelotcheck')) === false) {
             require_once CLASS_DIR . 'tracker.class.php';
             $ocelotcheck = Tracker::info();
@@ -428,7 +428,7 @@ $max = 999;
     }
     $inbox = ($unread1 == 1 ? "$unread1&nbsp;{$lang['gl_msg_singular']}" : "$unread1&nbsp;{$lang['gl_msg_plural']}");
     //==Memcache peers
-    if (OCELOT_TRACKER == true) {
+    if (XBT_TRACKER == true) {
     if (($MyPeersOcelotCache = $mc1->get_value('MyPeers_Ocelot_'.$CURUSER['id'])) === false) {
         $seed['yes'] = $seed['no'] = 0;
         $seed['conn'] = 3;

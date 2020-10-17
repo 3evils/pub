@@ -49,7 +49,7 @@ $crow = mysqli_fetch_assoc($cres);
 if ($crow['min_class'] > $CURUSER['class']) stderr($lang['download_user_error'], $lang['download_no_id']);
 $fn = $INSTALLER09['torrent_dir'] . '/' . $id . '.torrent';
 if (!$row || !is_file($fn) || !is_readable($fn)) stderr('Err', 'There was an error with the file or with the query, please contact staff');
-if (happyHour('check') && happyCheck('checkid', $row['category']) && OCELOT_TRACKER == false && $INSTALLER09['happy_hour'] == true) {
+if (happyHour('check') && happyCheck('checkid', $row['category']) && XBT_TRACKER == false && $INSTALLER09['happy_hour'] == true) {
     $multiplier = happyHour('multiplier');
     happyLog($CURUSER['id'], $id, $multiplier);
     sql_query('INSERT INTO happyhour (userid, torrentid, multiplier ) VALUES (' . sqlesc($CURUSER['id']) . ',' . sqlesc($id) . ',' . sqlesc($multiplier) . ')') or sqlerr(__FILE__, __LINE__);
@@ -96,7 +96,7 @@ if (isset($_GET['slot'])) {
         if ($used_slot && $slot['doubleup'] == 'yes') sql_query('UPDATE freeslots SET free = "yes", addedfree = ' . $added . ' WHERE torrentid = ' . $id . ' AND userid = ' . $CURUSER['id'] . ' AND doubleup = "yes"') or sqlerr(__FILE__, __LINE__);
         elseif ($used_slot && $slot['doubleup'] == 'no') sql_query('INSERT INTO freeslots (torrentid, userid, free, addedfree) VALUES (' . sqlesc($id) . ', ' . sqlesc($CURUSER['id']) . ', "yes", ' . $added . ')') or sqlerr(__FILE__, __LINE__);
         else sql_query('INSERT INTO freeslots (torrentid, userid, free, addedfree) VALUES (' . sqlesc($id) . ', ' . sqlesc($CURUSER['id']) . ', "yes", ' . $added . ')') or sqlerr(__FILE__, __LINE__);
-    if(OCELOT_TRACKER) {
+    if(XBT_TRACKER) {
             require_once(CLASS_DIR . 'tracker.class.php');
             Tracker::update_tracker('add_token', array('userid' => $CURUSER['id'], 'info_hash' => rawurlencode($row['info_hash'])));
         }
@@ -149,13 +149,13 @@ if (!isset($CURUSER['torrent_pass']) || strlen($CURUSER['torrent_pass']) != 32) 
         'torrent_pass' => $CURUSER['torrent_pass']
     ));
     $mc1->commit_transaction($INSTALLER09['expires']['user_cache']);
-    if (OCELOT_TRACKER) {
+    if (XBT_TRACKER) {
         require_once(CLASS_DIR . 'tracker.class.php');
         Tracker::update_tracker('add_user', array('passkey' => rawurlencode($passkey), 'id' => $CURUSER['id'], 'visible' => ($CURUSER['privacy'] != 'normal' ? 1 : 0), 'free_switch' => $CURUSER['free_switch']));
     }
 }
 $dict = bencdec::decode_file($fn, $INSTALLER09['max_torrent_size']);
-if (OCELOT_TRACKER == true) {
+if (XBT_TRACKER == true) {
     $dict['announce'] = $INSTALLER09['ocelot_prefix'] . $CURUSER['torrent_pass'] . $INSTALLER09['ocelot_suffix'];
 } else {
     $dict['announce'] = $INSTALLER09['announce_urls'][$ssluse] . '?torrent_pass=' . $CURUSER['torrent_pass'];

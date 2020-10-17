@@ -176,7 +176,7 @@ if (mysqli_num_rows($res_offer) > 0) {
 }
 $HTMLOUT.= $offers;
 $HTMLOUT.= "</div>";
-if ($CURUSER['class'] >= UC_UPLOADER AND OCELOT_TRACKER == false) {
+if ($CURUSER['class'] >= UC_UPLOADER AND XBT_TRACKER == false) {
     $HTMLOUT.= "<div class='row'>
 <div class='medium-6 large-4 columns'>{$lang['upload_add_free']}  
     <select name='free_length'>
@@ -312,7 +312,7 @@ $HTMLOUT.= "<div class='medium-6 large-4 columns'>
 	</fieldset>
 </div></div>";
 
-if (OCELOT_TRACKER == true) {
+if (XBT_TRACKER == true) {
         $HTMLOUT.= "<fieldset class='fieldset'>{$lang['upload_add_free']}<input type='checkbox' name='freetorrent' value='1'>{$lang['upload_add_freeinf']}</div>";
     }
 $HTMLOUT.= "<div class='row'><div class='small-12 columns'><input type='submit' class='button float-right' value='{$lang['upload_submit']}'></div></div>";
