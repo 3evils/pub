@@ -39,12 +39,8 @@ die('A 64bit or higher OS + Processor is required.');
 
 define('EMAIL_CONFIRM', true);
 define('SQL_DEBUG', 1);
-define('OCELOT_TRACKER', true);
-define('TRACKER_SECRET', 'trackerkey');
-define('TRACKER_REPORTKEY', 'trackerkey');
-define('TRACKER_HOST', '127.0.0.1');
-define('TRACKER_PORT', 34000);
-define('OCELOT_CONF', '/var/www/ocelot.conf');
+define('XBT_TRACKER', true);
+
 //==charset
 $INSTALLER09['char_set'] = 'UTF-8'; //also to be used site wide in meta tags
 if (ini_get('default_charset') != $INSTALLER09['char_set']) {
@@ -88,11 +84,11 @@ $INSTALLER09['expires']['user_cache'] = 30 * 86400; // 30 days
 $INSTALLER09['expires']['curuser'] = 30 * 86400; // 30 days
 $INSTALLER09['expires']['u_status'] = 30 * 84600; // 30x86400 = 30 days
 $INSTALLER09['expires']['u_stats'] = 300; // 300 = 5 min
-$INSTALLER09['expires']['u_stats_ocelot'] = 30; // 30 seconds
+$INSTALLER09['expires']['u_stats_xbt'] = 30; // 30 seconds
 $INSTALLER09['expires']['user_status'] = 30 * 84600; // 30x86400 = 30 days
 $INSTALLER09['expires']['user_stats'] = 300; // 300 = 5 min
-$INSTALLER09['expires']['user_stats_ocelot'] = 30; // 30 seconds
-$INSTALLER09['expires']['MyPeers_OCELOT_'] = 30;
+$INSTALLER09['expires']['user_stats_xbt'] = 30; // 30 seconds
+$INSTALLER09['expires']['MyPeers_xbt_'] = 30;
 $INSTALLER09['expires']['announcement'] = 600; // 600 = 10 min
 $INSTALLER09['expires']['shoutbox'] = 86400; // 86400 = 1 day
 $INSTALLER09['expires']['staff_shoutbox'] = 86400; // 86400 = 1 day
@@ -116,7 +112,7 @@ $INSTALLER09['expires']['torrent_data'] = 900; // 900 = 15 min
 $INSTALLER09['expires']['user_flag'] = 86400 * 28; // 900 = 15 min
 $INSTALLER09['expires']['shit_list'] = 900; // 900 = 15 min
 $INSTALLER09['expires']['port_data'] = 900; // 900 = 15 min
-$INSTALLER09['expires']['port_data_ocelot'] = 900; // 900 = 15 min
+$INSTALLER09['expires']['port_data_xbt'] = 900; // 900 = 15 min
 $INSTALLER09['expires']['user_peers'] = 900; // 900 = 15 min
 $INSTALLER09['expires']['user_friends'] = 900; // 900 = 15 min
 $INSTALLER09['expires']['user_hash'] = 900; // 900 = 15 min
@@ -152,12 +148,12 @@ $INSTALLER09['expires']['total_funds'] = 0; // 0 = infinite
 $INSTALLER09['expires']['latest_news'] = 0; // 0 = infinite
 $INSTALLER09['expires']['site_stats'] = 300; // 300 = 5 min
 $INSTALLER09['expires']['share_ratio'] = 900; // 900 = 15 min
-$INSTALLER09['expires']['share_ratio_ocelot'] = 900; // 900 = 15 min
+$INSTALLER09['expires']['share_ratio_xbt'] = 900; // 900 = 15 min
 $INSTALLER09['expires']['checked_by'] = 0; // 0 = infinite
 $INSTALLER09['expires']['sanity'] = 0; // 0 = infinite
 $INSTALLER09['expires']['movieofweek'] = 300; // 604800 = 1 week
 $INSTALLER09['expires']['browse_where'] = 60; // 60 = 60 seconds
-$INSTALLER09['expires']['torrent_ocelot_data'] = 300; // 300 = 5 min
+$INSTALLER09['expires']['torrent_xbt_data'] = 300; // 300 = 5 min
 $INSTALLER09['expires']['ismoddin'] = 0; // 0 = infinite
 $INSTALLER09['expires']['faqs'] = 0;  // 0 = infinite
 $INSTALLER09['expires']['rules'] = 0; // 0 = infinite
@@ -229,10 +225,10 @@ $INSTALLER09['flood_file'] = INCL_DIR . 'settings' . DIRECTORY_SEPARATOR . 'limi
 $INSTALLER09['nameblacklist'] = ROOT_DIR . 'cache' . DIRECTORY_SEPARATOR . 'nameblacklist.txt';
 $INSTALLER09['happyhour'] = CACHE_DIR . 'happyhour' . DIRECTORY_SEPARATOR . 'happyhour.txt';
 $INSTALLER09['sql_error_log'] = ROOT_DIR . 'sqlerr_logs' . DIRECTORY_SEPARATOR . 'sql_err_' . date('M_D_Y') . '.log';
-//== PHP or Ocelot announce
-if (OCELOT_TRACKER == true) {
-$INSTALLER09['ocelot_prefix'] = '#announce_urls:'.TRACKER_PORT.'/';  
-$INSTALLER09['ocelot_suffix'] = '/announce';
+//== PHP or xbt announce
+if (XBT_TRACKER == true) {
+$INSTALLER09['xbt_prefix'] = '#announce_urls:'.TRACKER_PORT.'/';  
+$INSTALLER09['xbt_suffix'] = '/announce';
 $INSTALLER09['announce_urls'][] = '#announce_urls:'.TRACKER_PORT.'/announce';
 } else {
 $INSTALLER09['announce_urls'] = array();

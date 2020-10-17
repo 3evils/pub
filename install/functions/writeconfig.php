@@ -1,29 +1,21 @@
 <?php
 /**
- /**
  |--------------------------------------------------------------------------|
- |   https://github.com/3evils/                                             |
+ |   https://github.com/Bigjoos/                                            |
  |--------------------------------------------------------------------------|
  |   Licence Info: WTFPL                                                    |
  |--------------------------------------------------------------------------|
- |   Copyright (C) 2020 Evil-Trinity                                        |
+ |   Copyright (C) 2010 U-232 V5                                            |
  |--------------------------------------------------------------------------|
- |   A bittorrent tracker source based on an unreleased U-232               |
+ |   A bittorrent tracker source based on TBDev.net/tbsource/bytemonsoon.   |
  |--------------------------------------------------------------------------|
- |   Project Leaders: AntiMidas,  Seeder                                    |
+ |   Project Leaders: Mindless, Autotron, whocares, Swizzles.               |
  |--------------------------------------------------------------------------|
- |   All other snippets, mods and contributions for this version from:      |
- | CoLdFuSiOn, *putyn, pdq, djGrrr, Retro, elephant, ezero, Alex2005,       |
- | system, sir_Snugglebunny, laffin, Wilba, Traffic, dokty, djlee, neptune, |
- | scars, Raw, soft, jaits, Melvinmeow, RogueSurfer, stoner, Stillapunk,    |
- | swizzles, autotron, stonebreath, whocares, Tundracanine , son            |
- |                                                                                                                            |
- |--------------------------------------------------------------------------|
-                 _   _   _   _     _   _   _   _   _   _   _
-                / \ / \ / \ / \   / \ / \ / \ / \ / \ / \ / \
-               | E | v | i | l )-| T | r | i | n | i | t | y )
-                \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/ \_/
-*/
+  _   _   _   _   _     _   _   _   _   _   _     _   _   _   _
+ / \ / \ / \ / \ / \   / \ / \ / \ / \ / \ / \   / \ / \ / \ / \
+( U | - | 2 | 3 | 2 )-( S | o | u | r | c | e )-( C | o | d | e )
+ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/ \_/ \_/   \_/ \_/ \_/ \_/
+ */
 //==09 Installer by putyn
 $foo = array(
     'Database' => array(
@@ -70,8 +62,8 @@ $foo = array(
             'info' => 'Your site name.'
         ) ,
         array(
-            'text' => 'Using ocelot Tracker',
-            'input' => 'config[ocelot_tracker]',
+            'text' => 'Using XBT Tracker',
+            'input' => 'config[xbt_tracker]',
             'info' => 'Check if yes.'
         ) ,
     ) ,
@@ -139,7 +131,7 @@ function createblock($fo, $foo)
     foreach ($foo as $bo) {$out.= '<tr>
                 <td class="input_text">'.$bo['text'].'</td>';
                 if(strpos($bo['input'], 'pass') == true) {$type = 'password';}
-                elseif ($bo['input'] == 'config[ocelot_tracker]') {$type = 'checkbox" value="yes" checked="checked';}
+                elseif ($bo['input'] == 'config[xbt_tracker]') {$type = 'checkbox" value="yes" checked="checked';}
                 else {$type = 'text';}
                 $out.= '<td class="input_input"><input type="'.$type.'" name="'.$bo['input'].'" size="30"/></td>
                 <td class="input_info">'.$bo['info'].'</td>
@@ -153,13 +145,13 @@ function saveconfig()
     $continue = true;
     $out = "<fieldset><legend>Write config</legend>";
     if (!file_exists('config.lock')) {
-    	if(isset($_POST['config']['ocelot_tracker'])) {
-    		$file = "extra/config.ocelotsample.php";
-    		$ocelot = 1;
+    	if(isset($_POST['config']['xbt_tracker'])) {
+    		$file = "extra/config.xbtsample.php";
+    		$xbt = 1;
     	}
     	else {
     		$file = "extra/config.phpsample.php";
-    		$ocelot = 0;
+    		$xbt = 0;
     	}
         $config = file_get_contents($file);
         $keys = array_map('foo', array_keys($_POST['config']));
@@ -174,13 +166,13 @@ function saveconfig()
         }
     } else $out.= '<div class="readable">Config file was already written</div>';
     if (!file_exists('announce.lock')) {
-        if(isset($_POST['config']['ocelot_tracker'])) {
-            $file = "extra/ann_config.ocelotsample.php";
-            $ocelot = 1;
+        if(isset($_POST['config']['xbt_tracker'])) {
+            $file = "extra/ann_config.xbtsample.php";
+            $xbt = 1;
         }
         else {
             $file = "extra/ann_config.phpsample.php";
-            $ocelot = 0;
+            $xbt = 0;
         }
         $announce = file_get_contents($file);
         $keys = array_map('foo', array_keys($_POST['announce']));
@@ -195,13 +187,13 @@ function saveconfig()
         }
     } else $out.= '<div class="readable">Announce file was already written</div>';
     if ($continue) {
-        if(isset($_POST['config']['ocelot_tracker'])) {
-            $ocelot = 1;
+        if(isset($_POST['config']['xbt_tracker'])) {
+            $xbt = 1;
         }
         else {
-            $ocelot = 0;
+            $xbt = 0;
         }
-        $out.= '<div style="text-align:center" class="info"><input type="button" value="Next step" onclick="window.location.href=\'index.php?step=2&ocelot='.$ocelot.'\'"/></div>';
+        $out.= '<div style="text-align:center" class="info"><input type="button" value="Next step" onclick="window.location.href=\'index.php?step=2&xbt='.$xbt.'\'"/></div>';
         file_put_contents('step1.lock', 1);
     } else $out.= '<div style="text-align:center" class="info"><input type="button" value="Go back" onclick="window.go(-1)"/></div>';
     $out.= '</fieldset>';
