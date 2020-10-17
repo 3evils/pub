@@ -27,17 +27,27 @@
 $HTMLOUT.= "";
 			$page = 1;
 			$num = 0;
-if (($topics = $mc1->get_value('last_posts_b_' . $CURUSER['class'])) === false) {
+			if (($topics = $mc1->get_value('last_posts_b_' . $CURUSER['class'])) === false) {
 			$topicres = sql_query("SELECT t.id, t.user_id, t.topic_name, t.locked, t.forum_id, t.last_post, t.sticky, t.views, t.anonymous AS tan, f.min_class_read, f.name " . ", (SELECT COUNT(id) FROM posts WHERE topic_id=t.id) AS p_count " . ", p.user_id AS puser_id, p.added, p.anonymous AS pan " . ", u.id AS uid, u.username " . ", u2.username AS u2_username " . "FROM topics AS t " . "LEFT JOIN forums AS f ON f.id = t.forum_id " . "LEFT JOIN posts AS p ON p.id=(SELECT MAX(id) FROM posts WHERE topic_id = t.id) " . "LEFT JOIN users AS u ON u.id=p.user_id " . "LEFT JOIN users AS u2 ON u2.id=t.user_id " . "WHERE f.min_class_read <= " . $CURUSER['class'] . " " . "ORDER BY t.last_post DESC LIMIT {$INSTALLER09['latest_posts_limit']}") or sqlerr(__FILE__, __LINE__);
 			while ($topic = mysqli_fetch_assoc($topicres)) $topics[] = $topic;
 			$mc1->cache_value('last_posts_b_' . $CURUSER['class'], $topics, $INSTALLER09['expires']['latestposts']);
 			}
 			if (count($topics) > 0) {
-                $HTMLOUT.= "<div class='card'>
+			$HTMLOUT.= "<div class='card'>
 	<div class='card-divider portlet-header'>{$lang['latestposts_title']}</div>
   <div class='portlet-content card-section'>
-				<div class='responsive-card-table'>
-					";
+				<table class='responsive-card-table striped'>
+					<thead>
+						<tr>
+							<th>{$lang['latestposts_topic_title']}</th>
+							<th>Forum Title</th>
+							<th>Added by</th>
+							<th>Added</th>
+							<th>{$lang['latestposts_replies']}</th>
+							<th>{$lang['latestposts_views']}</th>
+							<th>{$lang['latestposts_last_post']}</th>
+						</tr>
+					</thead>";
 				if ($topics) {
 				foreach ($topics as $topicarr) {
 				$topicid = (int)$topicarr['id'];
@@ -84,24 +94,22 @@ if (($topics = $mc1->get_value('last_posts_b_' . $CURUSER['class'])) === false) 
 				$forum_name = "<a href='forums.php?action=viewforum&amp;forumid=" . (int)$topicarr['forum_id'] . "'>" . htmlsafechars($topicarr['name']) . "</a>";
 				$topic_name = "<p>" . $lockedimg . $stickyimg . "<a href='/forums.php?action=viewtopic&amp;topicid=$topicid&amp;page=last#" . (int)$topicarr['last_post'] . "'><b>" . htmlsafechars($topicarr['topic_name']) . "</b></a>&nbsp;&nbsp;$staffimg&nbsp;&nbsp;</p><p>$menu</p>";
 				$HTMLOUT.= "
-						<table style='table-layout: fixed;' ><tr>
-						<th  class='stacked  small-12' data-label='{$lang['latestposts_topic_title']}'>{$topic_name}</th>
-						<th class='stacked  small-12' data-label='Forum Title'>$forum_name</th>
-						<th class='stacked  small-12' data-label='Added by'>$author</th>
-						<th class='stacked  small-12' data-label='Added'>$added</th>
-						<th style='width:20%;' class='stacked  small-12' data-label='{$lang['latestposts_replies']}'><span class='badge'>{$replies}</span></th>
-						<th style='width:20%;' class='stacked  small-12' data-label='{$lang['latestposts_views']}'><span class='badge'>" . number_format($topicarr['views']) . "</span></th>
-						<th class='stacked  small-12' data-label='{$lang['latestposts_last_post']}'>{$username}</th></tr>
-						</table>
-						
-						
-						
-					";
+					<tr>
+						<tbody>
+						<td data-label='{$lang['latestposts_topic_title']}'>{$topic_name}</td>
+						<td data-label='Forum Title'>$forum_name</td>
+						<td data-label='Added by'>$author</td>
+						<td data-label='Added'>$added</td>
+						<td data-label='{$lang['latestposts_replies']}'><span class='badge'>{$replies}</span></td>
+						<td data-label='{$lang['latestposts_views']}'><span class='badge'>" . number_format($topicarr['views']) . "</span></td>
+						<td data-label='{$lang['latestposts_last_post']}'>{$username}</td>
+						</tbody>
+					</tr>";
 				}
     } else {
         //if there are no posts...
         if (empty($topics)) 
-			$HTMLOUT.= "<tr><th class='fullwidth'>{$lang['latestposts_no_posts']}</th></tr>";
+			$HTMLOUT.= "<tr><td class='fullwidth'>{$lang['latestposts_no_posts']}</td></tr>";
     }
 	$HTMLOUT.= "</table></div></div>";
 }

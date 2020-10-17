@@ -18,7 +18,7 @@
 
 */
 // happy hour
-if(XBT_TRACKER == false OR $INSTALLER09['happy_hour'] == true) {
+if(OCELOT_TRACKER == false OR $INSTALLER09['happy_hour'] == true) {
 if ($CURUSER) {
     require_once (INCL_DIR . 'function_happyhour.php');
     if (happyHour("check")) {

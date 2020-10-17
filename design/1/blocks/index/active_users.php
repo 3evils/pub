@@ -27,8 +27,8 @@ if (($active_users_cache = $mc1->get_value($keys['activeusers'])) === false) {
     $actcount = mysqli_num_rows($res);
     $v = ($actcount != 1 ? 's' : '');
     while ($arr = mysqli_fetch_assoc($res)) {
-        if ($activeusers) $activeusers.= ",\n";
-        $activeusers.= '<b>&nbsp;' . format_username($arr) . '&nbsp;</b>';
+        if ($activeusers) $activeusers.= ",";
+        $activeusers.= '<b>' . format_username($arr) . '</b>';
     }
     $active_users_cache['activeusers'] = $activeusers;
     $active_users_cache['actcount'] = $actcount;
@@ -43,7 +43,7 @@ $active_users = '<div class="card">
 		<label class="text-left">' . $lang['index_active'] . '&nbsp;&nbsp;<span class="badge success disabled" style="color:#fff">' . $active_users_cache['actcount'] . '</span></label>
 	</div>
 	<div class="content portlet-content card-section">
-		<p style="display:ruby;">' . $active_users_cache['activeusers'] . '&nbsp;</p>
+		<p>' . $active_users_cache['activeusers'] . '</p>
 	</div>
 </div>';
 $HTMLOUT.=  $active_users;

@@ -31,7 +31,21 @@ if (isset($_GET['clear_new']) && $_GET['clear_new'] == 1) {
     $mc1->commit_transaction($INSTALLER09['expires']['user_cache']);
     header("Location: {$INSTALLER09['baseurl']}/browse_catalogue.php");
 }
-
+if (function_exists('parked')) parked();
+$HTMLOUT = $searchin = $select_searchin = $where = $addparam = $new_button = $search_help_boolean = '';
+$search_help_boolean = '<h1>The boolean search supports the following operators:</h1>
+<p><span style="font-weight: bold;">+</span> A leading plus sign indicates that this word must be present.<br /><br />
+    <span style="font-weight: bold;">-</span> A leading minus sign indicates that this word must not be present.<br /><br />
+        By default (when neither + nor - is specified) the word is optional, but results that contain it are rated higher. <br /><br />
+    <span style="font-weight: bold;">*</span> The asterisk serves as the wildcard operator. Unlike the other operators, it should be appended to the word to be affected. Words match if they begin with the word preceding the * operator.<br /><br />
+    <span style="font-weight: bold;">> <</span> These two operators are used to change a word\'s contribution to the relevance value that is assigned to a word. The > operator increases the contribution and the < operator decreases it.<br /><br />
+    <span style="font-weight: bold;">~</span> A leading tilde acts as a negation operator, causing the word\'s contribution to the words\'s relevance to be negative. A row containing such a word is rated lower than others, but is not excluded altogether, as it would be with the - operator.<br /><br />
+    <span style="font-weight: bold;">" "</span> A phrase that is enclosed within double quotes return only results that contain the phrase literally, as it was typed. <br /><br />
+    <span style="font-weight: bold;">( )</span> Parentheses group words into subexpressions. Parenthesized groups can be nested.
+    </p>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>';
 $cats = genrelist();
 if (isset($_GET["search"])) {
     $searchstr = sqlesc($_GET["search"]);
@@ -108,7 +122,7 @@ if (isset($_GET["incldead"]) && $_GET["incldead"] == 1) {
 }
 //=== added an only free torrents option \\o\o/o//
 if (isset($_GET['only_free']) && $_GET['only_free'] == 1) {
-    if (XBT_TRACKER == true ? $wherea[] = "freetorrent >= '1'" : $wherea[] = "free >= '1'");
+    if (OCELOT_TRACKER == true ? $wherea[] = "freetorrent >= '1'" : $wherea[] = "free >= '1'");
     //$wherea[] = "free >= '1'";
     $addparam.= "only_free=1&amp;";
 }
@@ -234,7 +248,7 @@ if ($count) {
 
 if (isset($cleansearchstr)) $title = "{$lang['browse_search']} $searchstr";
 else $title = '';
-$HTMLOUT.= "<div class='row'><style> .medium-offset-2{margin-left:0px!important;}.small-10{width:100%;}</style><div class='small-10 columns medium-offset-2'>";
+$HTMLOUT.= "<div class='row'><div class='small-10 columns medium-offset-2'>";
 if ($CURUSER['opt1'] & user_options::VIEWSCLOUD) {
     $HTMLOUT.= "<div id='wrapper' style='width:80%;border:1px solid black;background-color:rgba(121,124,128,0.3);'>";
     //print out the tag cloud

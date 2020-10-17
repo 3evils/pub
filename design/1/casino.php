@@ -350,7 +350,6 @@ if (isset($color_options[$post_color]) && isset($number_options[$post_number]) |
         sql_query("UPDATE casino SET deposit = deposit + " . sqlesc($nobits) . " WHERE userid = " . sqlesc($CURUSER['id'])) or sqlerr(__FILE__, __LINE__);
         $update['uploaded'] = ($newups);
         //==stats
-
         $mc1->begin_transaction('userstats_' . $CURUSER['id']);
         $mc1->update_row(false, array(
             'uploaded' => $update['uploaded']
@@ -394,11 +393,11 @@ if (isset($color_options[$post_color]) && isset($number_options[$post_number]) |
 	<div class='panel-body'>
 	
             <div class='row'><div class='col-sm-6 col-sm-offset-3'><div class='panel'><table class='table'>";
-            $HTMLOUT .= "<tr><td style='width:80%!important' align=\"center\" colspan=\"2\" class=\"colhead\">{$lang['casino_place_bet']}</td></tr>";
-            $HTMLOUT .= "<tr><td style='width:80%!important' align=\"center\"><b>{$lang['casino_amount_to_bet']}</b>
+            $HTMLOUT .= "<tr><td align=\"center\" colspan=\"2\" class=\"colhead\">{$lang['casino_place_bet']}</td></tr>";
+            $HTMLOUT .= "<tr><td align=\"center\"><b>{$lang['casino_amount_to_bet']}</b>
 
-            <div class='row'><div class='col-sm-3 col-sm-offset-3'><input style='width:80%!important' class=\"form-control input-small\" type=\"text\" name=\"amnt\" size=\"5\" value=\"1\" /></div>
-            <div class='col-sm-3'><select style='width:80%!important' class=\"form-control\" name=\"unit\">
+            <div class='row'><div class='col-sm-3 col-sm-offset-3'><input class=\"form-control input-small\" type=\"text\" name=\"amnt\" size=\"5\" value=\"1\" /></div>
+            <div class='col-sm-3'><select class=\"form-control\" name=\"unit\">
 
             <option value=\"1\">MB</option>
             <option value=\"2\">GB</option>
@@ -483,7 +482,7 @@ $HTMLOUT.="<div class='col-sm-6'>";
     $HTMLOUT .= tr($lang['casino_bet_on_a_number'], "<input class='btn btn-default'  type=\"submit\" value=\"{$lang['casino_do_it']}!\" />", 1);
     $HTMLOUT .= "</table></form></div></div></div>";
  //== User stats table
-    $HTMLOUT .= "<div class='panel panel-default'><table style='width: 100%;' class='table table-bordered'>";
+    $HTMLOUT .= "<div class='panel panel-default'><table class='table table-bordered'>";
     $HTMLOUT .= "<tr><td align=\"center\" class=\"colhead\" colspan=\"3\">{$CURUSER['username']}'s {$lang['casino_details']}</td></tr>
             <tr><td align='center'>
             <h1>User @ {$INSTALLER09['site_name']} {$lang['casino_stdhead']}</h1>

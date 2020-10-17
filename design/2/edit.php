@@ -124,7 +124,7 @@ if ($CURUSER['class'] >= UC_UPLOADER) {
 $HTMLOUT.= "<br><div class='row'><div class='col-sm-12'></div></div>";
 $HTMLOUT.= "<br><div class='row'>
 <div class='col-sm-4'>";
-if ($CURUSER['class'] >= UC_STAFF && XBT_TRACKER == false) {
+if ($CURUSER['class'] >= UC_STAFF && OCELOT_TRACKER == false) {
     $HTMLOUT.= tr("{$lang['edit_add_free']}", ($row['free'] != 0 ? "<input type='checkbox' name='fl' value='1' />{$lang['edit_add_nofree']}" : "
     <select name='free_length'>
     <option value='0'>------</option>
@@ -181,11 +181,11 @@ $HTMLOUT.="<div class='col-sm-4'>";
 	$HTMLOUT.= tr($lang['edit_anonymous'], "<input type='checkbox' name='anonymous'" . (($row["anonymous"] == "yes") ? " checked='checked'" : "") . " value='1' />{$lang['edit_anonymous1']}", 1);
 $HTMLOUT.= "</div>"; 
 $HTMLOUT.="<div class='col-sm-4'> ";  
-	if (XBT_TRACKER == false) {
+	if (OCELOT_TRACKER == false) {
         $HTMLOUT.= tr($lang['edit_vip1'], "<input type='checkbox' name='vip'" . (($row["vip"] == 1) ? " checked='checked'" : "") . " value='1' />{$lang['edit_vip2']}", 1);
 $HTMLOUT.= "</div>";    }
 $HTMLOUT.="<div class='col-sm-4'>";
-    if (XBT_TRACKER == true) {
+    if (OCELOT_TRACKER == true) {
         $HTMLOUT.= tr($lang['edit_add_free'], "<input type='checkbox' name='freetorrent'" . (($row["freetorrent"] == 1) ? " checked='checked'" : "") . " value='1' />{$lang['edit_makefree']}", 1);
  $HTMLOUT.= "</div>";   }
 }

@@ -61,7 +61,7 @@ $HTMLOUT .= "<div class='card'>
 	<div class='card-divider portlet-header'>{$lang['index_shoutbox_general']}</div>
   <div class='portlet-content card-section'>";
 $HTMLOUT.= "
-<div class='large-100 columns'>
+<div class='large-9 columns'>
 <form action='shoutbox.php' method='get' target='shoutbox' name='shbox' onsubmit='mysubmit()'>
 <iframe src='{$INSTALLER09['baseurl']}/shoutbox.php' class='shout-table' name='shoutbox'></iframe>
 		<div class='input-group'>
@@ -72,9 +72,9 @@ $HTMLOUT.= "
 			</div>
 		</div>
 </div>
-<!--<div class='large-3 columns'>-->
-	<!--<label class='text-left'>" . $lang['index_active'] . "&nbsp;&nbsp;<span class='badge success disabled' style='color:#fff'>" . $active_users_cache['actcount'] . "</span></label>-->
-  <!--<div class='callout' style='overflow:auto; height:555px;'><p>" . $active_users_cache['activeusers'] . "</p></div></div>-->
+<div class='large-3 columns'>
+	<label class='text-left'>" . $lang['index_active'] . "&nbsp;&nbsp;<span class='badge success disabled' style='color:#fff'>" . $active_users_cache['actcount'] . "</span></label>
+  <div class='callout' style='overflow:auto; height:250px;'><p>" . $active_users_cache['activeusers'] . "</p></div></div>
 <div class='large-12 columns'>
 <a href=\"javascript:SmileIT(':-)','shbox','shbox_text')\"><i class='em em-laughing'></i></a>
 <a href=\"javascript:SmileIT(':smile:','shbox','shbox_text')\"><img src='{$INSTALLER09['pic_base_url']}smilies/smile2.gif' alt='Smiling' title='Smiling' /></a>
@@ -101,7 +101,7 @@ $HTMLOUT.= "
 <a href=\"javascript:SmileIT(':baby:','shbox','shbox_text')\"><img src='{$INSTALLER09['pic_base_url']}smilies/baby.gif' alt='Baby' title='Baby' /></a>";
 if ($CURUSER['class'] >= UC_STAFF)
 {
-$HTMLOUT.= '<br><br><style>.boog {margin-left:auto;margin-right:auto;}</style><div style="display:flex;"></div><div class="boog" ><a class="tiny button" href="'.$INSTALLER09['baseurl'].'/staffpanel.php?tool=shistory">'.$lang['index_shoutbox_history'].'</a>';
+$HTMLOUT.= '<a class="tiny button" href="'.$INSTALLER09['baseurl'].'/staffpanel.php?tool=shistory">'.$lang['index_shoutbox_history'].'</a>';
 }
 $HTMLOUT.= "{$commandbutton}
 {$staffsmiliebutton}

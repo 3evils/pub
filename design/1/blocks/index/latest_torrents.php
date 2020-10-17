@@ -75,7 +75,7 @@ if (($top5torrents = $mc1->get_value('top5_tor_')) === false) {
 }
 if (count($top5torrents) > 0) {
     $HTMLOUT.= "<div class='module'><div class='tbadge tbadge-top'></div>
-     	    <table class='responsive-card-table'>
+     	    <table class='responsive-card-table striped'>
             <thead>
 				<tr>
 					<th><b>{$lang['top5torrents_type']}</b></th>
@@ -95,11 +95,11 @@ if ($top5torrents) {
             $poster = empty($top5torrentarr["poster"]) ? "<img src=\'{$INSTALLER09['pic_base_url']}noposter.jpg\' width=\'150\' height=\'220\' />" : "<img src=\'" . htmlsafechars($top5torrentarr['poster']) . "\' width=\'150\' height=\'220\' />";
             $HTMLOUT.= "
             <tbody><tr>
-            <th  data-label='{$lang['top5torrents_type']}'><img style='height:100px;' src='pic/caticons/{$CURUSER['categorie_icon']}/" . htmlsafechars($top5torrentarr["cat_pic"]) . "' alt='" . htmlsafechars($top5torrentarr["cat_name"]) . "' title='" . htmlsafechars($top5torrentarr["cat_name"]) . "' /></th>
-            <th data-label='{$lang['top5torrents_name']}'><a href=\"{$INSTALLER09['baseurl']}/details.php?id=" . (int)$top5torrentarr['id'] . "&amp;hit=1\" onmouseover=\"Tip('<b>{$lang['index_ltst_name']}" . htmlsafechars($top5torrentarr['name']) . "</b><br /><b>{$lang['index_ltst_seeder']}" . (int)$top5torrentarr['seeders'] . "</b><br /><b>{$lang['index_ltst_leecher']}" . (int)$top5torrentarr['leechers'] . "</b><br />$poster');\" onmouseout=\"UnTip();\">{$torrname}</a></th>
-          <th data-label='{$lang['top5torrents_seeders']}'><span class='badge'>" . (int)$top5torrentarr['seeders'] . "</span></th>
-          <th data-label='{$lang['top5torrents_leechers']}'><span class='badge'>" . (int)$top5torrentarr['leechers'] . "</span></th>
-          <th data-label='{$lang['top5torrents_health']}'><span class='badge'>$thealth</span></th>       
+            <td data-label='{$lang['top5torrents_type']}'><img src='pic/caticons/{$CURUSER['categorie_icon']}/" . htmlsafechars($top5torrentarr["cat_pic"]) . "' alt='" . htmlsafechars($top5torrentarr["cat_name"]) . "' title='" . htmlsafechars($top5torrentarr["cat_name"]) . "' /></td>
+            <td data-label='{$lang['top5torrents_name']}'><a href=\"{$INSTALLER09['baseurl']}/details.php?id=" . (int)$top5torrentarr['id'] . "&amp;hit=1\" onmouseover=\"Tip('<b>{$lang['index_ltst_name']}" . htmlsafechars($top5torrentarr['name']) . "</b><br /><b>{$lang['index_ltst_seeder']}" . (int)$top5torrentarr['seeders'] . "</b><br /><b>{$lang['index_ltst_leecher']}" . (int)$top5torrentarr['leechers'] . "</b><br />$poster');\" onmouseout=\"UnTip();\">{$torrname}</a></td>
+          <td data-label='{$lang['top5torrents_seeders']}'><span class='badge'>" . (int)$top5torrentarr['seeders'] . "</span></td>
+          <td data-label='{$lang['top5torrents_leechers']}'><span class='badge'>" . (int)$top5torrentarr['leechers'] . "</span></td>
+          <td data-label='{$lang['top5torrents_health']}'><span class='badge'>$thealth</span></td>       
 	 </tr></tbody>";
         }
     } else {
@@ -118,7 +118,7 @@ if (($last5torrents = $mc1->get_value('last5_tor_')) === false) {
 }
 if (count($last5torrents) > 0) {
     $HTMLOUT.= "<div class='module'><div class='tbadge tbadge-new'></div>
-    	        <table style='margin-left:.05%;' class='row'>
+    	        <table class='striped'>
                 <thead>
 				<tr>
                 <th class=' col-md-1 text-left'><b>{$lang['last5torrents_type']}</b></th>
@@ -137,7 +137,7 @@ if (count($last5torrents) > 0) {
             $poster = empty($last5torrentarr["poster"]) ? "<img src=\'{$INSTALLER09['pic_base_url']}noposter.jpg\' width=\'150\' height=\'220\' />" : "<img src=\'" . htmlsafechars($last5torrentarr['poster']) . "\' width=\'150\' height=\'220\' />";
             $HTMLOUT.= "
             <tbody><tr>
-            <td  class='text-center'><img style='height:100px;' src='pic/caticons/{$CURUSER['categorie_icon']}/" . htmlsafechars($last5torrentarr["cat_pic"]) . "' alt='" . htmlsafechars($last5torrentarr["cat_name"]) . "' title='" . htmlsafechars($last5torrentarr["cat_name"]) . "' /></td>
+            <td class='text-center'><img src='pic/caticons/{$CURUSER['categorie_icon']}/" . htmlsafechars($last5torrentarr["cat_pic"]) . "' alt='" . htmlsafechars($last5torrentarr["cat_name"]) . "' title='" . htmlsafechars($last5torrentarr["cat_name"]) . "' /></td>
             <td><a href=\"{$INSTALLER09['baseurl']}/details.php?id=" . (int)$last5torrentarr['id'] . "&amp;hit=1\"></a><a href=\"{$INSTALLER09['baseurl']}/details.php?id=" . (int)$last5torrentarr['id'] . "&amp;hit=1\" onmouseover=\"Tip('<b>{$lang['index_ltst_name']}" . htmlsafechars($last5torrentarr['name']) . "</b><br /><b>{$lang['index_ltst_seeder']}" . (int)$last5torrentarr['seeders'] . "</b><br /><b>{$lang['index_ltst_leecher']}" . (int)$last5torrentarr['leechers'] . "</b><br />$poster');\" onmouseout=\"UnTip();\">{$torrname}</a></td>
             <td class='text-center'><span class='badge'>".(int)$last5torrentarr['seeders']."</span></td>
             <td class='text-center'><span class='badge'>".(int)$last5torrentarr['leechers']."</span></td>

@@ -170,23 +170,23 @@ if ($row["type"] == "single") {
   $htmlout.= "Size:&nbsp;". str_replace(" ", " ", mksize($row["size"])) . "\n";  
 if ($row["times_completed"] != 1) $_s = "" . $lang["torrenttable_time_plural"] . "";
         else $_s = "" . $lang["torrenttable_time_singular"] . "";
-        $What_Script_S = (XBT_TRACKER == true ? 'snatches_ocelot.php?id=' : 'snatches.php?id=' );
+        $What_Script_S = (OCELOT_TRACKER == true ? 'snatches_ocelot.php?id=' : 'snatches.php?id=' );
         $htmlout.= "<br />Snatches:<a href='$What_Script_S"."$id'>$_s&nbsp;<b>downloaded</b>&nbsp;" . number_format($row["times_completed"]) . "</a>\n";
         if ($row["seeders"]) {
             if ($variant == "index") {
                 if ($row["leechers"]) $ratio = $row["seeders"] / $row["leechers"];
                 else $ratio = 1;
-                $What_Script_P = (XBT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
+                $What_Script_P = (OCELOT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
                 $htmlout.= "<br /><b>Seeders:</b>&nbsp;<b><a href='$What_Script_P"."$id#seeders'><font color='" . get_slr_color($ratio) . "'>" . (int)$row["seeders"] . "</font></a></b>&nbsp;\n";
             } else {
-                $What_Script_P = (XBT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
+                $What_Script_P = (OCELOT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
                 $htmlout.= "<br /><b>Seeders:</b>&nbsp;<b><a class='" . linkcolor($row["seeders"]) . "' href='$What_Script_P"."$id#seeders'>" . (int)$row["seeders"] . "</a></b>&nbsp;\n";
             }
         } else {
             $htmlout.= "<br /><b>Seeders:</b>&nbsp;<span class='" . linkcolor($row["seeders"]) . "'>" . (int)$row["seeders"] . "</span>\n";
         }
         if ($row["leechers"]) {
-            $What_Script_P = (XBT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
+            $What_Script_P = (OCELOT_TRACKER == true ? 'peerlist_ocelot.php?id=' : 'peerlist.php?id=' );
             if ($variant == "index") $htmlout.= "<b><a href='$What_Script_P"."$id#leechers'>" . number_format($row["leechers"]) . "</a></b>\n";
             else $htmlout.= "<b><a class='" . linkcolor($row["leechers"]) . "' href='$What_Script_P"."$id#leechers'>" . (int)$row["leechers"] . "</a></b>\n";
         } else $htmlout.= "<b>Leechers:</b>&nbsp;0\n";
