@@ -19,7 +19,7 @@
 $step = isset($_GET['step']) ? (int)$_GET['step'] : 0;
 $root = $_SERVER['DOCUMENT_ROOT'];
 if ($root[strlen($root) - 1] != DIRECTORY_SEPARATOR) $root = $root.DIRECTORY_SEPARATOR;
-if (file_exists($root.'include/install.lock')) die('This was already installed, huh ? how this happened');
+if (file_exists($root.'./include/install.lock')) die('This was already installed, huh ? how this happened');
 function checkpreviousstep()
 {
     $step = isset($_GET['step']) ? (int)$_GET['step'] - 1 : 0;
