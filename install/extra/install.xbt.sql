@@ -2875,6 +2875,7 @@ CREATE TABLE `shoutbox` (
   `userid` bigint(6) NOT NULL DEFAULT '0',
   `to_user` int(10) NOT NULL DEFAULT '0',
   `username` varchar(25) CHARACTER SET utf8 DEFAULT NULL,
+  `avatar` text COLLATE utf8_unicode_ci NOT NULL,
   `date` int(11) NOT NULL DEFAULT '0',
   `text` text CHARACTER SET utf8,
   `text_parsed` text CHARACTER SET utf8,
