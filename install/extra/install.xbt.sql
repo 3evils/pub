@@ -73,7 +73,7 @@ INSERT INTO `achievementist` (`id`, `achievname`, `notes`, `clienticon`) VALUES
 (33, 'Stick Em Up LVL3', 'Uploading at least 10 sticky torrents.', 'sticky3.png'),
 (34, 'Stick EM Up LVL4', 'Uploading at least 25 sticky torrents.', 'sticky4.png'),
 (35, 'Stick EM Up LVL5', 'Uploading at least 50 sticky torrents.', 'sticky5.png'),
-(36, 'Gag Da B1tch', 'Getting gagged like he\'s Adams Man!', 'gagged.png'),
+(36, 'Gag Da B1tch', 'Getting gagged like hes Adams Man!', 'gagged.png'),
 (37, 'Signature Setter', 'User has successfully set a signature on profile settings.', 'signature.png'),
 (38, 'Corruption Counts', 'Transferred at least 1 byte of corrupt data incoming.', 'corrupt.png'),
 (40, '7 Day Seeder', 'Seeded a snatched torrent for a total of at least 7 days.', '7dayseed.png'),

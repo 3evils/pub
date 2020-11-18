@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="efdac0ab-2ded-4257-8942-11396e6dde88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install/extra/install.xbt.sql" beforeDir="false" afterPath="$PROJECT_DIR$/install/extra/install.xbt.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +82,7 @@
       <workItem from="1587953603680" duration="253000" />
       <workItem from="1601897551961" duration="51000" />
       <workItem from="1602123179285" duration="11025000" />
-      <workItem from="1605340756600" duration="920000" />
+      <workItem from="1605340756600" duration="3912000" />
     </task>
     <servers />
   </component>
@@ -93,10 +94,10 @@
       <screen x="0" y="40" width="2560" height="1040" />
     </state>
     <state x="148" y="205" key="SettingsEditor/0.40.2560.1040@0.40.2560.1040" timestamp="1601897570299" />
-    <state x="99" y="108" width="863" height="795" key="find.popup" timestamp="1605344248194">
+    <state x="99" y="108" width="863" height="795" key="find.popup" timestamp="1605346119655">
       <screen x="0" y="25" width="1920" height="970" />
     </state>
-    <state x="99" y="108" width="863" height="795" key="find.popup/0.25.1920.970/1920.25.2560.1055@0.25.1920.970" timestamp="1605344248194" />
+    <state x="99" y="108" width="863" height="795" key="find.popup/0.25.1920.970/1920.25.2560.1055@0.25.1920.970" timestamp="1605346119655" />
     <state x="66" y="89" width="575" height="565" key="find.popup/0.30.1280.690/3840.-544.1920.1050@0.30.1280.690" timestamp="1602123338984" />
     <state x="303" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1602123257608">
       <screen x="0" y="30" width="1280" height="690" />
